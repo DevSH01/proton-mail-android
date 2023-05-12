@@ -26,7 +26,7 @@
     <string name="x_done">Готово</string>
     <string name="x_edit">Изменить</string>
     <string name="x_hours">Часов</string>
-    <string name="x_more">Еще</string>
+    <string name="x_more">Ещё</string>
     <string name="x_none">Нет</string>
     <string name="x_search">Поиск</string>
     <string name="x_set">Установить</string>
@@ -35,7 +35,7 @@
     <!-- region Content descriptions: accessibility description for icons -->
     <string name="x_label_icon_description">Значок ярлыка</string>
     <string name="x_folder_icon_description">Значок папки</string>
-    <string name="x_parent_folder_icon_description">Папка с детским значком</string>
+    <string name="x_parent_folder_icon_description">Папка с дочерним значком</string>
     <!-- endregion -->
     <!-- region Drawer -->
     <string name="drawer_scheduled">Запланированные</string>
@@ -64,6 +64,8 @@
     <string name="mailbox_updated_just_now">Обновлено только что</string>
     <string name="mailbox_updated_recently">Недавно обновлено</string>
     <string name="mailbox_updating">Обновляется…</string>
+    <string name="is_proton">Это сообщение от Proton</string>
+    <string name="is_proton_official_badge">Официальный</string>
     <!-- endregion -->
     <!-- region Details -->
     <string name="details_open_in_proton_calendar_title">Открыть в Proton Calendar</string>
@@ -95,7 +97,7 @@
     <string name="set_msg_password_info_icon_description">Информация</string>
     <string name="set_msg_password_msg_password_title">Пароль сообщения</string>
     <string name="set_msg_password_msg_password_hint">от 4 до 21 символа</string>
-    <string name="set_msg_password_repeat_password_title">Подтвердить пароль</string>
+    <string name="set_msg_password_repeat_password_title">Повторите пароль</string>
     <string name="set_msg_password_repeat_password_hint">Пароли должны совпадать</string>
     <string name="set_msg_password_password_hint_title">Подсказка к паролю</string>
     <string name="set_msg_password_password_hint_hint">Укажите подсказку (необязательно)</string>
@@ -121,8 +123,8 @@
     <string name="settings_confirm_pin_code_title">Повторите PIN-код</string>
     <string name="settings_pins_dont_match">PIN-коды должны совпадать!</string>
     <string name="settings_enter_pin_code_title">Введите PIN-код</string>
-    <string name="settings_storage_limit_mb_value">%1$d МB (%2$.2f МB используется)</string>
-    <string name="settings_storage_limit_unlimited_value">Безлимитный (%1$.2f MB используется)</string>
+    <string name="settings_storage_limit_mb_value">%1$d МБ (%2$.2f МБ используется)</string>
+    <string name="settings_storage_limit_unlimited_value">Безлимитный (%1$.2f МБ используется)</string>
     <string name="settings_swipe_settings_info">Настройте жесты для доступа к наиболее часто используемым действиям.</string>
     <string name="settings_swipe_left_to_right">Слева направо</string>
     <string name="settings_swipe_right_to_left">Справа налево</string>
@@ -132,7 +134,7 @@
     <!-- region App Theme -->
     <string name="app_theme_title">Тема приложения</string>
     <string name="app_theme_light">Светлая</string>
-    <string name="app_theme_dark">Темная</string>
+    <string name="app_theme_dark">Тёмная</string>
     <string name="app_theme_system">Системная по умолчанию</string>
     <!-- endregion -->
     <!-- region Labels Manger -->
@@ -145,8 +147,8 @@
     <!-- endregion -->
     <!-- region Notifications -->
     <string name="notification_summary_text_new_messages">Новые сообщения</string>
-    <string name="notification_invalid_sender_sending_failed">Ваше сообщение может быть найдено как черновик. Пожалуйста, проверьте, активена ли электронная почта \" От:\" в сообщении.</string>
-    <string name="notification_invalid_subject_sending_failed">Ваше сообщение может быть найдено как черновик. Тема не является действительной.</string>
+    <string name="notification_invalid_sender_sending_failed">Ваше сообщение осталось в черновиках. Пожалуйста, проверьте, что эл. адрес отправителя в сообщении активен.</string>
+    <string name="notification_invalid_subject_sending_failed">Ваше сообщение осталось в черновиках. Тема недействительна.</string>
     <!-- endregion -->
     <!-- region Contacts Empty States -->
     <string name="contacts_empty_state_no_contacts">Нет контактов</string>
@@ -160,13 +162,13 @@
     <!-- endregion -->
     <!-- region Onboarding -->
     <string name="new_user_onboarding_privacy_for_all_headline">Конфиденциальность для всех</string>
-    <string name="new_user_onboarding_privacy_for_all_description">Пригласите ваши контакты в Proton Mail, чтобы пользоваться бесшовным конечным шифрованием, или добавьте защиту паролем в отправляемые им сообщения.</string>
+    <string name="new_user_onboarding_privacy_for_all_description">Пригласите свои контакты в Proton Mail, чтобы пользоваться безупречным сквозным шифрованием, или добавьте защиту паролем к сообщениям, которые вы им отправляете.</string>
     <string name="new_user_onboarding_neat_and_tidy_headline">Чистый и опрятный</string>
-    <string name="new_user_onboarding_neat_and_tidy_description">Файлы, ярлыки и цветовая маркировка сообщений помогают создать ваш идеальный индивидуальный почтовый ящик.</string>
+    <string name="new_user_onboarding_neat_and_tidy_description">Упорядочивайте, отмечайте и раскрашивайте зашифрованные сообщения, чтобы создать идеальный индивидуальный почтовый ящик.</string>
     <string name="existing_user_onboarding_new_look_headline">Новый внешний вид, та же защита</string>
     <string name="existing_user_onboarding_new_look_description">Ваша зашифрованная электронная почта была полностью переработана для удобства использования.</string>
     <string name="existing_user_onboarding_new_features_headline">Новые функции</string>
-    <string name="existing_user_onboarding_new_features_description">Воспользуйтесь такими новыми функциями, как темный режим, улучшенные уведомления, фильтр непрочитанных сообщений и вложенные папки.</string>
+    <string name="existing_user_onboarding_new_features_description">Воспользуйтесь такими новыми функциями, как тёмный режим, улучшенные уведомления, фильтр непрочитанных сообщений и вложенные папки.</string>
     <string name="existing_user_onboarding_updated_proton_headline">Обновленный Proton, единая защита</string>
     <string name="existing_user_onboarding_updated_proton_description">Представляем обновленный вид Proton. Много услуг, одна миссия. Добро пожаловать в Интернет, где конфиденциальность установлена по умолчанию. <a href="https://proton.me/news/updated-proton">Подробнее</a></string>
     <string name="onboarding_next">Далее</string>
@@ -176,7 +178,7 @@
     <!-- endregion -->
     <!-- region Snackbars -->
     <string name="snackbar_message_draft_saved">Черновик сохранен</string>
-    <string name="snackbar_message_draft_moved_to_trash">Черновик перемещен в корзину</string>
+    <string name="snackbar_message_draft_moved_to_trash">Черновик перемещён в корзину</string>
     <string name="snackbar_action_discard">Сбросить</string>
     <!-- endregion -->
     <!-- region Old / V3 / pre-conventions -->
@@ -206,13 +208,13 @@
     <string name="open_drawer">Открыть</string>
     <string name="close_drawer">Закрыть</string>
     <string name="inbox_option">Входящие</string>
-    <string name="starred_option">Важные</string>
+    <string name="starred_option">Отмеченные звёздочкой</string>
     <string name="drafts_option">Черновики</string>
     <string name="sent_option">Отправленные</string>
     <string name="archive_option">Архив</string>
     <string name="trash_option">Корзина</string>
     <string name="spam_option">Спам</string>
-    <string name="allmail_option">Все письма</string>
+    <string name="allmail_option">Вся почта</string>
     <string name="inbox">Входящие</string>
     <string name="starred">Со звёздами</string>
     <string name="drafts">Черновики</string>
@@ -260,9 +262,9 @@
     <string name="max_labels_exceeded">У сообщения %1$s не может быть больше %2$d ярлыков.</string>
     <string name="max_attachments_reached">Достигнуто максимальное количество вложений на одно сообщение</string>
     <string name="max_attachments_size_reached">Достигнут максимальный размер вложений в сообщении</string>
-    <string name="expiration_days">%dД</string>
-    <string name="expiration_hours">%dЧ</string>
-    <string name="expiration_minutes">%dМ</string>
+    <string name="expiration_days">%d д</string>
+    <string name="expiration_hours">%d ч</string>
+    <string name="expiration_minutes">%d мин</string>
     <plurals name="attachments">
         <item quantity="one">%d вложение</item>
         <item quantity="few">%d вложения</item>
@@ -273,7 +275,7 @@
         <item quantity="one">\u0020 %d вложение</item>
         <item quantity="few">\u0020 %d вложения</item>
         <item quantity="many">\u0020 %d вложений</item>
-        <item quantity="other">\u0020 %d вложения</item>
+        <item quantity="other">\u0020 %d вложений</item>
     </plurals>
     <plurals name="attachments_number">
         <item quantity="one">%d вложение</item>
@@ -299,7 +301,7 @@
     <string name="yes">Да</string>
     <string name="no">Нет</string>
     <string name="ok">ОК</string>
-    <string name="forward_prefix">Fw:</string>
+    <string name="forward_prefix">Переслано:</string>
     <string name="original_message_divider">-------- Исходное сообщение --------</string>
     <string name="invalid_email_address">Адрес \'%s\' недействителен</string>
     <string name="invalid_email_address_removed">Адрес \'%s\' недействителен и был удален</string>
@@ -316,7 +318,7 @@
     <string name="cancel">Отменить</string>
     <string name="close">Закрыть</string>
     <string name="eo_password_title">Задать пароль</string>
-    <string name="eo_password_subtitle">Установите пароль для шифрования этого сообщения для пользователей, не являющихся пользователями Proton Mail</string>
+    <string name="eo_password_subtitle">Установите пароль для шифрования этого сообщения для пользователей, не использующих Proton Mail</string>
     <string name="eo_password_more_info">Получить больше информации</string>
     <string name="no_attachments">Нет вложений</string>
     <string name="display_name_banned_chars">Недопустимое отображаемое имя. Символы \'&gt;\' и \'&lt;\' запрещены</string>
@@ -388,7 +390,7 @@
         <item quantity="many">%d попыток до полного удаления данных!</item>
         <item quantity="other">%d попыток до полного удаления данных!</item>
     </plurals>
-    <string name="logout">Выход</string>
+    <string name="logout">Выйти</string>
     <string name="logout_question_next_account">Вы будете переключены на %s.</string>
     <string name="upgrade">Повысить</string>
     <string name="error">Ошибка</string>
@@ -418,7 +420,7 @@
         <item>Вибрация и звук</item>
     </string-array>
     <string-array name="account_type_names">
-        <item>Бесплатный</item>
+        <item>Free</item>
         <item>Plus</item>
         <item>Visionary</item>
         <item>Professional</item>
@@ -482,7 +484,7 @@
     <string name="logged_out_description">Вы вышли из системы. Пожалуйста, войдите заново.</string>
     <string name="print_error">Ошибка печати</string>
     <string name="download_complete">Скачивание завершено</string>
-    <string name="message_expires_in">Срок действия сообщения истечет через %s</string>
+    <string name="message_expires_in">Срок действия сообщения истечёт через %s</string>
     <string name="unsaved_changes_title">Несохранённые изменения</string>
     <string name="unsaved_changes_subtitle">В форме присутствуют несохранённые данные. Вы уверены, что хотите отказаться от них?</string>
     <string name="request_timeout">Истекло время ожидания запроса, пожалуйста, попробуйте ещё раз</string>
@@ -505,7 +507,7 @@
     <string name="saving">Сохранение...</string>
     <string name="update_folder">Обновить папку</string>
     <string name="spam_score_100">Это письмо, по-видимому, пришло с адреса Proton Mail, но было получено не из нашей системы и не прошло проверку подлинности. Это может быть поддельное или неправильно пересланное письмо!</string>
-    <string name="spam_score_101">Это письмо не соответствует требованиям подтверждения подлинности своего домена. Оно может быть поддельным, либо было переслано ненадлежащим образом!</string>
+    <string name="spam_score_101">Это письмо не соответствует требованиям подтверждения подлинности домена. Оно может быть поддельным, либо было переслано ненадлежащим образом.</string>
     <string name="spam_score_102">Это сообщение может быть попыткой фишинга. Пожалуйста, проверьте отправителя и содержимое, чтобы убедиться в их подлинности. <a href="https://proton.me/blog/prevent-phishing-attacks">Подробнее</a></string>
     <string name="print_from_template">От: %s</string>
     <string name="print_to_template">Кому: %s;  </string>
@@ -513,11 +515,11 @@
     <string name="print_bcc_template">Скрытая копия: %s;  </string>
     <string name="address">Адрес: </string>
     <string name="address_street">Улица</string>
-    <string name="address_extended_street">Расширенная улица</string>
+    <string name="address_extended_street">Подробный адрес</string>
     <string name="address_city">Город</string>
     <string name="address_region">Регион (штат или провинция)</string>
     <string name="address_postcode">Почтовый индекс</string>
-    <string name="address_po_box">Абонентный ящик</string>
+    <string name="address_po_box">Абонентский ящик</string>
     <string name="address_country">Страна</string>
     <string name="recheck_delinquency">Проверить снова</string>
     <string name="close_app">Закрыть приложение</string>
@@ -664,7 +666,7 @@
     <string name="fab_add_contact_group">Добавить новую группу контактов</string>
     <string name="contacts_add_photo_title">Добавить фото</string>
     <string name="contacts_add_photo_select_gallery">Выбрать из галереи</string>
-    <string name="contacts_add_photo_select_camera">Снять на камеру</string>
+    <string name="contacts_add_photo_select_camera">Снимок с камеры</string>
     <string name="save_group_validation_error">Пожалуйста, укажите название группы</string>
     <!-- region Storage Limit Reached -->
     <string name="storage_limit_alert">Достигнут предел объёма хранилища. Невозможно отправлять или получать почту.
@@ -682,6 +684,7 @@
     <string name="need_storage_permissions_download_attachment_text">Чтобы скачать вложения, вам нужно разрешить
         доступ к хранилищу.</string>
     <string name="need_contacts_permissions_text">Чтобы импортировать контакты вам надо предоставить доступ к контактам.</string>
+    <string name="need_notification_permissions_to_receive_notifications">Чтобы получать уведомления от приложения, необходимо разрешить приложению показывать уведомления.</string>
     <string name="push_notifications_alert_title">Предупреждение о push-уведомлениях</string>
     <string name="push_notifications_alert_subtitle">Push-уведомления для Proton Mail не работают без обновленных сервисов Google Play.</string>
     <string name="app_locked">Приложение заблокировано</string>
@@ -727,7 +730,7 @@
         <item>4 часа</item>
         <item>8 часов</item>
         <item>12 часов</item>
-        <item>Свое значение</item>
+        <item>Своё значение</item>
         <item>Запланированные</item>
     </string-array>
     <string name="notifications_snoozed">Уведомления приглушены</string>
@@ -741,7 +744,7 @@
         <item quantity="one">Уведомления будут возобновлены через %d минуту</item>
         <item quantity="few">Уведомления будут возобновлены через %d минуты</item>
         <item quantity="many">Уведомления будут возобновлены через %d минут</item>
-        <item quantity="other">Уведомления будут возобновлены через %d минуты</item>
+        <item quantity="other">Уведомления будут возобновлены через %d минут</item>
     </plurals>
     <string name="quick_snooze_resume_hours">Уведомления будут возобновлены через %1$d ч. и %2$d мин.</string>
     <string name="minutes">Минуты</string>
@@ -769,13 +772,13 @@
     <string name="mailbox">Почтовый ящик</string>
     <string name="privacy">Конфиденциальность</string>
     <string name="auto_download_messages_title">Автозагрузка сообщений</string>
-    <string name="auto_download_messages_subtitle">Если данная опция включена, тела сообщений будут скачиваться автоматически каждый раз при получении вами уведомлений о новых письмах (это израсходует больше трафика). Если данная опция выключена, тела сообщений будут скачиваться только при их открытии вами. (Примечание: независимо от опции, если вы очистите кэш или выйдете, то не сможете читать тела сообщений без подключения к Интернету.)</string>
+    <string name="auto_download_messages_subtitle">Если данная опция включена, тексты сообщений будут скачиваться автоматически каждый раз при получении вами уведомлений о новых письмах (это израсходует больше трафика). Если данная опция выключена, тексты сообщений будут скачиваться только при их открытии вами. (Примечание: независимо от опции, если вы очистите кэш или выйдете, то не сможете читать тексты сообщений без подключения к Интернету.)</string>
     <string name="settings_background_sync">Фоновая синхронизация</string>
     <string name="settings_auto_show_images">Авто-показ внешних изображений</string>
     <string name="settings_auto_show_embedded_images">Авто-показ встроенных изображений</string>
     <string name="settings_prevent_taking_screenshots">Предотвратить снятие снимков экрана</string>
     <string name="hyperlink_confirmation">Запрашивать подтверждение при переходе по ссылкам</string>
-    <string name="labels_and_folders">Ярлыки &amp; папки </string>
+    <string name="labels_and_folders">Ярлыки и папки </string>
     <string name="folders">Папки</string>
     <string name="labels">Ярлыки</string>
     <string name="swipe_actions">Жесты пролистывания</string>
@@ -786,7 +789,7 @@
     <string name="swipe_action_trash">Сообщение перемещено в корзину</string>
     <string name="swipe_action_trash_short">Переместить в корзину</string>
     <string name="swipe_action_star">Звезда сообщения обновлена</string>
-    <string name="swipe_action_star_short">Обновить звездочку</string>
+    <string name="swipe_action_star_short">Обновить звёздочку</string>
     <string name="swipe_action_spam">Сообщение помечено как спам</string>
     <string name="swipe_action_spam_short">Спам</string>
     <string name="swipe_action_archive">Сообщение отправлено в архив</string>
@@ -821,7 +824,7 @@
     <string name="custom_language_dialog_title">Выберите язык приложения</string>
     <string name="auto_detect">Автоопределение</string>
     <string name="combined_contacts">Объединенные контакты</string>
-    <string name="turn_combined_contacts_on">Включите эту функцию для автозавершения адресов эл. почты путём использования контактов из всех учётных записей, в которые вы вошли.</string>
+    <string name="turn_combined_contacts_on">Включите эту функцию для автозаполнения адресов электронной почты используя контакты из всех авторизованных аккаунтов.</string>
     <string name="local_cache_management">Локальный кэш</string>
     <string name="cache_cleared">Локальный кэш обновлен</string>
     <string name="empty_data">Очистить данные</string>
@@ -842,11 +845,11 @@
     <string name="troubleshoot_dialog_title">Общие проблемы с подключением и их решения</string>
     <string name="troubleshoot_dialog_message">&lt;i&gt;Нет подключения к Интернету&lt;/i&gt; - Убедитесь, что у вас есть подключение к Интернету.
         &lt;br/&gt;&lt;br/&gt;&lt;i&gt;Проблема у интернет-провайдера (ISP)&lt;/i&gt; - Попробуйте подключиться к Proton из другой сети (или используйте &lt;a href=\"https://protonvpn.com/\"&gt;Proton VPN&lt;/a&gt; или &lt;a href=\"https://www.torproject.org/\"&gt;Tor&lt;/a&gt;).
-        &lt;br/&gt;&lt;br/&gt;&lt;i&gt;Правительственная блокировка&lt;/i&gt; - Возможно, ваша страна блокирует доступ к Proton. Попробуйте &lt;a href=\"https://protonvpn.com/\"&gt;Proton VPN&lt;/a&gt; (или любую другую VPN) или &lt;a href=\"https://www.torproject.org/\"&gt;Tor&lt;/a&gt; для доступа к Proton.
+        &lt;br/&gt;&lt;br/&gt;&lt;i&gt;Правительственная блокировка&lt;/i&gt; - Возможно, ваша страна блокирует доступ к Proton. Попробуйте &lt;a href=\"https://protonvpn.com/\"&gt;Proton VPN&lt;/a&gt; (или любой другой VPN) или &lt;a href=\"https://www.torproject.org/\"&gt;Tor&lt;/a&gt; для доступа к Proton.
         &lt;br/&gt;&lt;br/&gt;&lt;i&gt;Вмешательство антивируса&lt;/i&gt; - Временно отключте или удалите ваше антивирусное программное обеспечение.
-        &lt;br/&gt;&lt;br/&gt;&lt;i&gt;Вмешательство прохси-сервера/брандмауэра;/i&gt; - Отключите все прокси-серверы или брандмауэры или свяжитесь со своим сетевым администратором.
-        &lt;br/&gt;&lt;br/&gt;&lt;i&gt;Proton не работает&lt;/i&gt; - Проверьте &lt;a href=\"http://protonstatus.com/\"&gt;состояние Proton;/a&gt; для нашего системного состояния.
-        &lt;br/&gt;&lt;br/&gt;&lt;i&gt;Еще невозможно найти решение&lt;/i&gt; - Свяжитесь с нами напрямую через нашу &lt;a href=\"https://proton.me/support/contact\"&gt;форму поддержки&lt;/a&gt;, &lt;a href=\"mailto:support@protonmail.zendesk.com\"&gt;электронную почту&lt;/a&gt; (support@protonmail.zendesk.com), или &lt;a href=\"https://twitter.com/ProtonPrivacy\"&gt;Twitter&lt;/a&gt;.
+        &lt;br/&gt;&lt;br/&gt;&lt;i&gt;Вмешательство прокси-сервера/брандмауэра&lt;/i&gt; - Отключите все прокси-серверы или брандмауэры или свяжитесь со своим сетевым администратором.
+        &lt;br/&gt;&lt;br/&gt;&lt;i&gt;Proton не работает&lt;/i&gt; - Проверьте &lt;a href=\"http://protonstatus.com/\"&gt;состояние Proton&lt;/a&gt; для нашего системного состояния.
+        &lt;br/&gt;&lt;br/&gt;&lt;i&gt;Решение до сих пор не найдено&lt;/i&gt; - Свяжитесь с нами напрямую через нашу &lt;a href=\"https://proton.me/support/contact\"&gt;форму поддержки&lt;/a&gt;, &lt;a href=\"mailto:support@protonmail.zendesk.com\"&gt;электронную почту&lt;/a&gt; (support@protonmail.zendesk.com), или &lt;a href=\"https://twitter.com/ProtonPrivacy\"&gt;Twitter&lt;/a&gt;.
     </string>
     <!-- endregion -->
     <!-- region errors -->
@@ -856,23 +859,24 @@
     <!-- endregion -->
     <string name="allowed">Разрешена</string>
     <string name="denied">Запрещена</string>
-    <string name="more">Еще</string>
+    <string name="more">Ещё</string>
     <!-- region Swipe gestures changed dialog -->
-    <string name="swipe_gestures_changed">Жесты свайпа изменены</string>
+    <string name="swipe_gestures_changed">Жесты пролистывания изменены</string>
     <string name="swipe_gestures_changed_message">В результате последнего обновления настройки жестов были изменены. Если хотите, их можно сбросить в настройках.</string>
     <string name="go_to_settings">Перейти в настройки</string>
     <!-- endregion -->
     <string name="invalid_firebase_api_key_message">Недействительный ключ API Firebase. Push-уведомления не будут работать.</string>
     <string name="failed_saving_draft_online">Не удалось сохранить онлайн черновик сообщения: \"%s\"</string>
+    <string name="failed_draft_does_not_exist">Сообщение \"%s\" не существует.</string>
     <string name="failed_uploading_attachment_online">Ошибка вложения для сообщения: \"%s\"</string>
     <string name="cannot_open_message_while_being_sent">Невозможно открыть сообщение пока оно отправляется</string>
     <string name="enable_conversation_mode">Включить цепочки писем</string>
     <!-- endregion -->
     <string name="recipient_email_format">&lt;%s&gt;</string>
     <string name="recipient_name_email_format">%s &lt;%s&gt;</string>
-    <string name="star">Отметить звездочкой</string>
-    <string name="unstar">Снять звездочку</string>
-    <string name="star_unstar">Отметить звездочкой / снять звездочку</string>
+    <string name="star">Отметить звёздочкой</string>
+    <string name="unstar">Снять звёздочку</string>
+    <string name="star_unstar">Отметить звёздочкой / снять звёздочку</string>
     <string name="send_to_archive">Отправить в архив?</string>
     <string name="label_as">Отметить как…</string>
     <string name="mark_as_unread">Отметить как непрочитанное</string>
@@ -882,7 +886,7 @@
     <string name="message_from">Сообщение от %s</string>
     <string name="not_spam_move_to_inbox">Не спам (переместить во Входящие)</string>
     <string name="action_sheet_view_in_light_mode">Просмотр в светлом режиме</string>
-    <string name="action_sheet_view_in_dark_mode">Просмотр в темном режиме</string>
+    <string name="action_sheet_view_in_dark_mode">Просмотр в тёмном режиме</string>
     <plurals name="x_messages_count">
         <item quantity="one">%d сообщение</item>
         <item quantity="few">%d сообщения</item>

@@ -19,7 +19,7 @@
   -->
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
     <!-- region All -->
-    <string name="x_app_version_name_code">Proton Mail %s (%d)</string>
+    <string name="x_app_version_name_code">Proton Mail %s (%d)</string>
     <string name="x_add_folder">Adăugare folder</string>
     <string name="x_add_label">Adăugare etichetă</string>
     <string name="x_days">zile</string>
@@ -63,6 +63,8 @@
     <string name="mailbox_updated_just_now">Actualizat chiar acum</string>
     <string name="mailbox_updated_recently">Recent actualizat</string>
     <string name="mailbox_updating">Se actualizează…</string>
+    <string name="is_proton">Acesta este un mesaj de la Proton</string>
+    <string name="is_proton_official_badge">Oficial</string>
     <!-- endregion -->
     <!-- region Details -->
     <string name="details_open_in_proton_calendar_title">Deschidere în Proton Calendar</string>
@@ -158,10 +160,10 @@
     <string name="contact_details_remote_content_dialog_positive_button">Încărcare conținut</string>
     <!-- endregion -->
     <!-- region Onboarding -->
-    <string name="new_user_onboarding_privacy_for_all_headline">Confidențialitate pentru toți</string>
-    <string name="new_user_onboarding_privacy_for_all_description">Invitați-vă contactele la Proton Mail pentru a beneficia de criptarea în ambele părți sau adăugați protecția cu parolă la mesajele pe care le trimiteți.</string>
+    <string name="new_user_onboarding_privacy_for_all_headline">Intimitate pentru toți</string>
+    <string name="new_user_onboarding_privacy_for_all_description">Invitați persoane pentru a beneficia de criptare perfectă sau adăugați parole la mesaje.</string>
     <string name="new_user_onboarding_neat_and_tidy_headline">Curată și ordonată</string>
-    <string name="new_user_onboarding_neat_and_tidy_description">Clasificați, etichetați și codificați prin culori mesajele pentru a vă crea o experiență personală de utilizare.</string>
+    <string name="new_user_onboarding_neat_and_tidy_description">Clasificați, etichetați și atribuiți culori mesajelor ușurându-vă utilizarea.</string>
     <string name="existing_user_onboarding_new_look_headline">Un aspect nou, aceeași protecție.</string>
     <string name="existing_user_onboarding_new_look_description">E-mailul criptat a fost reproiectat în întregime pentru a fi mai ușor de utilizat.</string>
     <string name="existing_user_onboarding_new_features_headline">Caracteristici noi</string>
@@ -179,7 +181,7 @@
     <string name="snackbar_action_discard">Anulare</string>
     <!-- endregion -->
     <!-- region Old / V3 / pre-conventions -->
-    <string name="protonmail">Proton Mail</string>
+    <string name="protonmail">Proton Mail</string>
     <string name="sign_out">Deconectare</string>
     <string name="sign_out_question">Sigur doriți să vă deconectați?</string>
     <string name="processing_request">Solicitarea este în curs de procesare</string>
@@ -218,7 +220,7 @@
     <string name="sent">Trimise</string>
     <string name="archive">Arhivă</string>
     <string name="trash">Gunoi</string>
-    <string name="spam">Spam</string>
+    <string name="spam">Nedorite</string>
     <string name="all_mail">Toate mesajele</string>
     <string name="contacts">Contacte</string>
     <string name="search_contacts">Căutare contacte</string>
@@ -259,9 +261,9 @@
     <string name="max_labels_exceeded">Mesajul %1$s nu poate avea mai mult de %2$d etichete.</string>
     <string name="max_attachments_reached">S-a atins maximum permis de fișiere atașate unui mesaj</string>
     <string name="max_attachments_size_reached">Dimensiunea maximă a atașamentelor per mesaj a fost atinsă</string>
-    <string name="expiration_days">%dZ</string>
-    <string name="expiration_hours">%dH</string>
-    <string name="expiration_minutes">%dL</string>
+    <string name="expiration_days">%d z</string>
+    <string name="expiration_hours">%d h</string>
+    <string name="expiration_minutes">%d min</string>
     <plurals name="attachments">
         <item quantity="one">Un atașament</item>
         <item quantity="few">%d atașamente</item>
@@ -411,10 +413,10 @@
         <item>Vibrație și sunet</item>
     </string-array>
     <string-array name="account_type_names">
-        <item>Gratuit</item>
+        <item>Free</item>
         <item>Plus</item>
-        <item>Vizionar</item>
-        <item>Profesional</item>
+        <item>Visionary</item>
+        <item>Professional</item>
     </string-array>
     <string name="contact_details">Detalii contact</string>
     <string name="email_type_home">Acasă</string>
@@ -498,7 +500,7 @@
     <string name="saving">Se salvează...</string>
     <string name="update_folder">Actualizare folder</string>
     <string name="spam_score_100">Acest e-mail pare să fie de la o adresă Proton Mail, dar a venit din afara sistemului nostru și nu respectă cerințele de autenticitate. Ar putea fi falsificat sau redirecționat eronat!</string>
-    <string name="spam_score_101">Acest e-mail nu respectă cerințele de autentificare ale domeniul său. Ar putea fi falsificat sau redirecționat eronat!</string>
+    <string name="spam_score_101">Acest e-mail nu respectă cerințele de autentificare ale domeniul său. Ar putea fi falsificat sau redirecționat eronat.</string>
     <string name="spam_score_102">Acest mesaj poate fi o încercare de înșelăciune. Verificați expeditorul și conținutul pentru a vă asigura că acestea sunt legitime. <a href="https://proton.me/blog/prevent-phishing-attacks">Detalii</a></string>
     <string name="print_from_template">De la: %s</string>
     <string name="print_to_template">Către: %s;  </string>
@@ -594,7 +596,7 @@ descărcarea în fundal a mesajelor noi</string>
 		că vom putea vedea conținutul complet al mesajului.</string>
     <string name="phishing_report_send_message_moved_to_spam">Raport trimis. Mesajul a fost mutat în «Spam».</string>
     <string name="cannot_send_report_send">Raportul nu poate fi trimis</string>
-    <string name="title_activity_contact_group_details">Detalii activitate grupuri contacte</string>
+    <string name="title_activity_contact_group_details">ContactGroupDetailsActivity</string>
     <!-- Contact Groups Strings -->
     <string name="add_photo">Adăugare fotografie</string>
     <string name="contact_display_name">Nume afișat</string>
@@ -670,6 +672,7 @@ descărcarea în fundal a mesajelor noi</string>
     <string name="need_storage_permissions_download_attachment_text">Pentru a descărca atașamente, trebuie să permiteți
         accesul la spațiul de stocare al telefonului.</string>
     <string name="need_contacts_permissions_text">Pentru a importa contacte, trebuie să permiteți accesul la contacte.</string>
+    <string name="need_notification_permissions_to_receive_notifications">Pentru a primi notificări de la aplicație trebuie să activați permisiunea pentru notificări.</string>
     <string name="push_notifications_alert_title">Notificări instante</string>
     <string name="push_notifications_alert_subtitle">Notificările instante pentru Proton Mail nu funcționează fără ultima actualizare a serviciilor Google Play.</string>
     <string name="app_locked">Aplicație blocată</string>
@@ -735,7 +738,7 @@ descărcarea în fundal a mesajelor noi</string>
     <string name="set_custom_quick_snooze">Setare valoare personală amânare rapidă</string>
     <string name="turn_off">Oprește</string>
     <string name="work_days">Zile de lucru</string>
-    <string name="weekends">Weekend</string>
+    <string name="weekends">Sfârșit de săptămână</string>
     <string name="every_day">Zilnic</string>
     <string-array name="snooze_repeat_values">
         <item>Lu</item>
@@ -850,6 +853,7 @@ descărcarea în fundal a mesajelor noi</string>
     <!-- endregion -->
     <string name="invalid_firebase_api_key_message">Cheie API Firebase nevalidă. Notificările push nu vor funcționa.</string>
     <string name="failed_saving_draft_online">Nu s-a reușit salvarea ciornei pentru mesajul: „%s”</string>
+    <string name="failed_draft_does_not_exist">Mesajul „%s” nu există.</string>
     <string name="failed_uploading_attachment_online">Eroare atașament la mesajului: „%s”</string>
     <string name="cannot_open_message_while_being_sent">Acest mesaj nu poate fi deschis în timp ce este trimis</string>
     <string name="enable_conversation_mode">Activare mod conversaţie</string>

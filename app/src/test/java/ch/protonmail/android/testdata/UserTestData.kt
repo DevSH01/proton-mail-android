@@ -28,7 +28,9 @@ import me.proton.core.domain.entity.UserId
 object UserTestData {
 
     private const val RAW_ID = "user_id"
+    private const val RAW_SECONDARY_USER_ID = "secondary_user_id"
     val userId = UserId(RAW_ID)
+    val secondaryUserId = UserId(RAW_SECONDARY_USER_ID)
 
     fun withAddresses(addressesList: Addresses): User = mockk {
         every { addresses } returns addressesList

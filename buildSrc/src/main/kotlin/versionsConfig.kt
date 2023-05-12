@@ -23,60 +23,60 @@ import studio.forface.easygradle.dsl.android.*
 fun initVersions() {
 
     // region Kotlin
-    `kotlin version` =                          "1.6.21"        // Released: Dec 14, 2021
+    `kotlin version` =                          "1.7.20"
     `coroutines version` =                      "1.5.2"         // Released: Sep 02, 2021
-    `serialization version` =                   "1.3.2"         // Released: Dec 23, 2021
+    `serialization version` =                   "1.4.1"
     // endregion
 
     // region Android
-    `android-gradle-plugin version` =           "7.3.1"
+    `android-gradle-plugin version` =           "7.4.2"
 
     `android-annotation version` =              "1.1.0"         // Released: Jun 05, 2019
     `appcompat version` =                       "1.2.0"         // Released: Aug 19, 2020
     `android-arch version` =                    "2.1.0"         // Released: Sep 06, 2019
     `constraint-layout version` =               "2.0.4"         // Released: Oct 31, 2020
-    `espresso version` =                        "3.4.0"         // Released: Jul 04, 2021
-    `hilt-android version` =                    "2.44"          // Released: Dec 07, 2021
+    `espresso version` =                        "3.5.0"
+    `hilt-android version` =                    "2.44.2"
     `hilt-androidx version` =                   "1.0.0"         // Released: May 05, 2021
-    `ktx version` =                             "1.6.0"         // Released: Jun 30, 2021
+    `ktx version` =                             "1.9.0"
     `lifecycle version` =                       "2.4.0-alpha01" // Released: Mar 24, 2021
     `material version` =                        "1.4.0"         // Released: Jul 04, 2021
     `android-paging version` =                  "2.1.0"         // Released: Jan 26, 2019
-    `android-room version` =                    "2.4.2"         // Released: Feb 23, 2022
+    `android-room version` =                    "2.4.3"         // Released: Feb 23, 2022
     `android-work version` =                    "2.7.1"         // Released: Nov 17, 2021
 
-    `android-test version` =                    "1.4.0"         // Released: Jun 06, 2021
+    `android-test version` =                    "1.5.0"
     // endregion
 
     // region Others
     `assert4k version` =                        "0.7.1"         // Released: May 04, 2021
     `assistedInject version` =                  "0.6.0"         // Released: Sep 14, 2020
-    `dagger version` =                          "2.44"          // Released: Dec 07, 2021
+    `dagger version` =                          "2.44.2"
 
-    `mockK version` =                           "1.13.2"
+    `mockK version` =                           "1.13.3"
     `retrofit version` =                        "2.9.0"         // Released: May 20, 2020
     `retrofit-kotlin-serialization version` =   "0.8.0"         // Released: Oct 09, 2020
-    `robolectric version` =                     "4.8.2"         // Released: Oct 11, 2019
+    `robolectric version` =                     "4.9.1"
     `viewStateStore version` =                  "1.4-beta-4"    // Released: Mar 02, 2020
     // endregion
 }
 
 // Proton Core
-const val `Proton-core version` =               "9.5.0"
+const val `Proton-core version` =               "10.4.0"
 
 // Test
 const val `aerogear version` =                  "1.0.0"         // Released: Mar 23, 2013
-const val `android-test-ext version` =          "1.1.3-rc01"    // Released: Jun 22, 2021
+const val `android-test-ext version` =          "1.1.4"
 const val `android-test-orchestrator version` = "1.4.1"         // Released: Dec 13, 2021
 const val `assertJ version` =                   "3.13.2"        // Released: Aug 04, 2019
 const val `falcon version` =                    "2.1.1"         // Released: Sep 24, 2018
 const val `hamcrest version` =                  "1.3"           // Released:
 const val `json-simple version` =               "1.1.1"         // Released: Mar 21, 2012
 const val `browserstack-plugin version` =       "3.0.1"         // Released: Jun 10, 2020
-const val `uiautomator version` =               "2.2.0"         // Released: Oct 25, 2018
+const val `uiautomator version` =               "2.3.0-alpha01"
 const val `sun-mail-android version` =          "1.5.5"         // Released: Mar 06, 2020
-const val `turbine version` =                   "0.7.0"         // Released: Oct 26, 2021
-const val `junit-ktx version` =                 "1.1.2"         // Released: Aug 06, 2020
+const val `turbine version` =                   "0.12.1"
+const val `junit-ktx version` =                 "1.1.4"
 
 // Android
 const val `android-biometric version` =         "1.0.1"         // Released: Jan 23, 2020
@@ -90,6 +90,7 @@ const val `flexbox version` =                   "2.0.1"         // Released: Jan
 const val `lifecycle-extensions version` =      "2.2.0"         // Released: Jan 22, 2020
 const val `googleServices version` =            "4.3.3"         // Released: Nov 11, 2019
 const val `playServices version` =              "17.0.0"        // Released: Jun 19, 2019
+const val `google-play-core-libs` =             "2.0.1"
 
 // Other
 const val `apache-commons-lang version` =       "3.4"           // Released: Apr 03, 2015
@@ -108,12 +109,12 @@ const val `okio version` =                      "2.10.0"        // Released: Jan
 const val `rf2 converter version` =             "2.9.0"         // Released: May 20, 2020
 const val `rxJava version` =                    "2.0.2"         // Released: Dec 02, 201
 const val `rxRelay version` =                   "2.1.1"         // Released: Aug 23, 201
-const val `sentry version` =                    "6.3.1"         // Released: Aug 03, 2022
-const val `sentry-plugin version` =             "3.1.3"         // Released: Jul 19, 2022
+const val `sentry version` =                    "6.11.0"
+const val `sentry-plugin version` =             "3.4.2"
 const val `sonarQube version` =                 "2.7.1"         // Released: May 14, 2019
 const val `stetho version` =                    "1.5.1"         // Released: Mar 18, 2019
 const val `timber version` =                    "4.7.1"         // Released:
 const val `trustKit version` =                  "1.1.2"         // Released: Jun 09, 2019
 const val `remark version` =                    "1.1.0"         // Released: Dec 08, 2016
-const val `store version` =                     "4.0.4-KT15"    // Released: Dec 09, 2021
+const val `store version` =                     "4.0.5"
 const val `coil version` =                      "1.2.1"         // Released: Apr 28, 2021

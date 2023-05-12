@@ -62,6 +62,7 @@ import ch.protonmail.android.events.DownloadEmbeddedImagesEvent
 import ch.protonmail.android.events.DownloadedAttachmentEvent
 import ch.protonmail.android.events.PostPhishingReportEvent
 import ch.protonmail.android.events.Status
+import ch.protonmail.android.feature.rating.MailboxScreenViewInMemoryRepository
 import ch.protonmail.android.jobs.PostSpamJob
 import ch.protonmail.android.labels.domain.model.LabelId
 import ch.protonmail.android.labels.domain.model.LabelType
@@ -121,6 +122,9 @@ internal class MessageDetailsActivity : BaseStoragePermissionActivity() {
 
     @Inject
     lateinit var accountSettingsRepository: AccountSettingsRepository
+
+    @Inject
+    lateinit var mailboxScreenViewRepository: MailboxScreenViewInMemoryRepository
 
     private lateinit var messageOrConversationId: String
     private lateinit var messageExpandableAdapter: MessageDetailsAdapter
@@ -358,6 +362,11 @@ internal class MessageDetailsActivity : BaseStoragePermissionActivity() {
         mApp.bus.unregister(this)
     }
 
+    override fun onBackPressed() {
+        mailboxScreenViewRepository.recordScreenView()
+        super.onBackPressed()
+    }
+
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             android.R.id.home -> {
@@ -512,7 +521,7 @@ internal class MessageDetailsActivity : BaseStoragePermissionActivity() {
                     showToast(R.string.downloading)
                 }
             }
-            Status.FAILED -> showToast(R.string.cant_download_attachment)
+            Status.FAILED, Status.VALIDATION_FAILED -> showToast(R.string.cant_download_attachment)
             Status.NO_NETWORK,
             Status.UNAUTHORIZED -> {
                 // NOOP, when on enums should be exhaustive
@@ -668,7 +677,15 @@ internal class MessageDetailsActivity : BaseStoragePermissionActivity() {
         messageDetailsActionsView.bind(actionsUiModel)
         messageDetailsActionsView.setAction(
             BottomActionsView.ActionPosition.ACTION_FIRST, !message.isScheduled,
-            if (hasMultipleRecipients) R.drawable.ic_proton_arrows_up_and_left else R.drawable.ic_proton_arrow_up_and_left
+            if (hasMultipleRecipients) R.drawable.ic_proton_arrows_up_and_left else R.drawable.ic_proton_arrow_up_and_left,
+            if (hasMultipleRecipients) getString(R.string.reply_all) else getString(R.string.reply)
+        )
+        messageDetailsActionsView.setAction(
+            BottomActionsView.ActionPosition.ACTION_THIRD, !message.isScheduled,
+            if (viewModel.shouldShowDeleteActionInBottomActionBar()) R.drawable.ic_proton_trash_cross else R.drawable.ic_proton_trash,
+            if (viewModel.shouldShowDeleteActionInBottomActionBar()) getString(R.string.delete) else getString(
+                R.string.trash
+            )
         )
         messageDetailsActionsView.setOnFourthActionClickListener {
             showLabelsActionSheet(LabelType.MESSAGE_LABEL)

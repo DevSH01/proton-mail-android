@@ -988,10 +988,15 @@ public class ComposeMessageActivity
 
     @Override
     public void onBackPressed() {
-        if (composeMessageViewModel.isDraftEmpty(this)) {
+        if (composeMessageViewModel.isLoadingDraftBody()) {
+            Timber.d("Exit composer: do not save and close");
+            finishActivity(false);
+        } else if (composeMessageViewModel.isDraftEmpty(this)) {
+            Timber.d("Exit composer: deleting draft and closing");
             composeMessageViewModel.deleteDraft();
             finishActivity(false);
         } else {
+            Timber.d("Exit composer: saving draft");
             UiUtil.hideKeyboard(ComposeMessageActivity.this);
             composeMessageViewModel.setBeforeSaveDraft(true, messageBodyEditText.getText().toString(), UserAction.SAVE_DRAFT_EXIT);
         }
@@ -1326,43 +1331,41 @@ public class ComposeMessageActivity
                     recipientsView.removeObjectForKey(entry.getKey());
                     return;
                 }
-                if (!sendPreference.isPrimaryPinned() && sendPreference.hasPinnedKeys()) {
-                    // send with untrusted key popup
-                    DialogUtils.Companion.showInfoDialog(
-                            ComposeMessageActivity.this,
-                            getString(R.string.send_with_untrusted_key_title),
-                            String.format(getString(R.string.send_with_untrusted_key_message), entry.getKey()),
-                            unit -> unit);
+                boolean arePinnedKeysVerified = sendPreference.isVerified();
+                if(sendPreference.hasPinnedKeys()){
+                    if(!arePinnedKeysVerified){
+                        DialogUtils.Companion.showInfoDialogWithTwoButtons(
+                                ComposeMessageActivity.this,
+                                getString(R.string.resign_contact_title),
+                                String.format(getString(R.string.resign_contact_message), entry.getKey()),
+                                getString(R.string.cancel),
+                                getString(R.string.yes),
+                                unit -> {
+                                    recipientsView.removeToken(entry.getKey());
+                                    recipientsView.removeObjectForKey(entry.getKey());
+                                    return unit;
+                                },
+                                unit -> {
+                                    GetSendPreferenceJob.Destination destination = GetSendPreferenceJob.Destination.TO;
+                                    if (recipientsView.equals(ccRecipientView)) {
+                                        destination = GetSendPreferenceJob.Destination.CC;
+                                    } else if (recipientsView.equals(bccRecipientView)) {
+                                        destination = GetSendPreferenceJob.Destination.BCC;
+                                    }
+                                    composeMessageViewModel.startResignContactJobJob(entry.getKey(), entry.getValue(), destination);
+                                    return unit;
+                                },
+                                false);
+                    }else if(!sendPreference.isPublicKeyPinned()){
+                        // send with untrusted key popup
+                        DialogUtils.Companion.showInfoDialog(
+                                ComposeMessageActivity.this,
+                                getString(R.string.send_with_untrusted_key_title),
+                                String.format(getString(R.string.send_with_untrusted_key_message), entry.getKey()),
+                                unit -> unit);
+                    }
                 }
-                boolean isVerified = sendPreference.isVerified();
-                if (!isVerified) {
-                    // send
-                    DialogUtils.Companion.showInfoDialogWithTwoButtons(
-                            ComposeMessageActivity.this,
-                            getString(R.string.resign_contact_title),
-                            String.format(getString(R.string.resign_contact_message), entry.getKey()),
-                            getString(R.string.cancel),
-                            getString(R.string.yes),
-                            unit -> {
-                                recipientsView.removeToken(entry.getKey());
-                                recipientsView.removeObjectForKey(entry.getKey());
-                                return unit;
-                            },
-                            unit -> {
-                                GetSendPreferenceJob.Destination destination = GetSendPreferenceJob.Destination.TO;
-                                if (recipientsView.equals(ccRecipientView)) {
-                                    destination = GetSendPreferenceJob.Destination.CC;
-                                } else if (recipientsView.equals(bccRecipientView)) {
-                                    destination = GetSendPreferenceJob.Destination.BCC;
-                                }
-                                composeMessageViewModel.startResignContactJobJob(entry.getKey(), entry.getValue(), destination);
-                                return unit;
-                            },
-                            false);
-                }
-                if (isVerified) {
-                    setRecipientIconAndDescription(sendPreference, recipientsView);
-                }
+                setRecipientIconAndDescription(sendPreference, recipientsView);
             }
             recipientsView.setSendPreferenceMap(composeMessageViewModel.getMessageDataResult().getSendPreferences(), bottomAppBar.hasPassword());
         }
@@ -1430,13 +1433,18 @@ public class ComposeMessageActivity
     @Subscribe
     public void onFetchDraftDetailEvent(FetchDraftDetailEvent event) {
         binding.composerProgressLayout.setVisibility(View.GONE);
+        composeMessageViewModel.onLoadingDraftBodyFinished();
         if (event.success) {
             composeMessageViewModel.initSignatures();
             composeMessageViewModel.processSignature();
             onMessageLoaded(event.getMessage(), true, true);
         } else {
             if (!isFinishing()) {
-                DialogUtils.Companion.showInfoDialog(ComposeMessageActivity.this, getString(R.string.app_name), getString(R.string.messages_load_failure),
+                DialogUtils.Companion.showInfoDialog(
+                        ComposeMessageActivity.this,
+                        getString(R.string.app_name),
+                        getString(R.string.messages_load_failure),
+                        false,
                         unit -> {
                             finishActivity(false);
                             return unit;
@@ -2049,7 +2057,12 @@ public class ComposeMessageActivity
     }
 
     public void checkPermissionsAndKeyboardToggle() {
-        if (ActivityCompat.checkSelfPermission(ComposeMessageActivity.this, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED && !askForPermission) {
+        boolean hasNotGrantedReadMediaPermissions =
+                ActivityCompat.checkSelfPermission(ComposeMessageActivity.this, Manifest.permission.READ_MEDIA_IMAGES) != PackageManager.PERMISSION_GRANTED &&
+                        ActivityCompat.checkSelfPermission(ComposeMessageActivity.this, Manifest.permission.READ_MEDIA_VIDEO) != PackageManager.PERMISSION_GRANTED &&
+                        ActivityCompat.checkSelfPermission(ComposeMessageActivity.this, Manifest.permission.READ_MEDIA_AUDIO) != PackageManager.PERMISSION_GRANTED;
+
+        if (hasNotGrantedReadMediaPermissions && !askForPermission) {
             UiUtil.hideKeyboard(this);
         } else if (ActivityCompat.checkSelfPermission(ComposeMessageActivity.this, Manifest.permission.READ_CONTACTS) != PackageManager.PERMISSION_GRANTED
                 && !askForPermission) {

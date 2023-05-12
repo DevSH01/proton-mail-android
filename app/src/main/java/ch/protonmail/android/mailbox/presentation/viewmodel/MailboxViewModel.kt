@@ -41,6 +41,7 @@ import ch.protonmail.android.domain.loadMoreMap
 import ch.protonmail.android.drawer.presentation.mapper.DrawerFoldersAndLabelsSectionUiModelMapper
 import ch.protonmail.android.drawer.presentation.model.DrawerFoldersAndLabelsSectionUiModel
 import ch.protonmail.android.feature.NotLoggedIn
+import ch.protonmail.android.feature.rating.usecase.ShouldStartRateAppFlow
 import ch.protonmail.android.labels.domain.LabelRepository
 import ch.protonmail.android.labels.domain.model.Label
 import ch.protonmail.android.labels.domain.model.LabelId
@@ -136,7 +137,8 @@ internal class MailboxViewModel @Inject constructor(
     private val getMailSettings: GetMailSettings,
     private val mailboxItemUiModelMapper: MailboxItemUiModelMapper,
     private val fetchEventsAndReschedule: FetchEventsAndReschedule,
-    private val clearNotificationsForUser: ClearNotificationsForUser
+    private val clearNotificationsForUser: ClearNotificationsForUser,
+    private val shouldStartRateAppFlow: ShouldStartRateAppFlow
 ) : ConnectivityBaseViewModel(verifyConnection, networkConfigurator) {
 
     private val _manageLimitReachedWarning = MutableLiveData<Event<Boolean>>()
@@ -154,6 +156,7 @@ internal class MailboxViewModel @Inject constructor(
         onBufferOverflow = BufferOverflow.DROP_OLDEST
     )
     private val _exitSelectionModeSharedFlow = MutableSharedFlow<Boolean>()
+    private val _startRateAppFlow = MutableSharedFlow<Unit>()
 
     private val messageDetailsRepository: MessageDetailsRepository
         get() = messageDetailsRepositoryFactory.create(userManager.requireCurrentUserId())
@@ -185,6 +188,9 @@ internal class MailboxViewModel @Inject constructor(
 
     val exitSelectionModeSharedFlow: SharedFlow<Boolean>
         get() = _exitSelectionModeSharedFlow
+
+    val startRateAppFlow: SharedFlow<Unit>
+        get() = _startRateAppFlow
 
     val mailboxState = mutableMailboxState.asStateFlow()
     val mailboxLocation = mutableMailboxLocation.asStateFlow()
@@ -721,6 +727,17 @@ internal class MailboxViewModel @Inject constructor(
 
             getMailSettings(userId).map(::Right)
         }
+
+    fun startRateAppFlowIfNeeded() {
+        val userId = userManager.currentUserId ?: return
+        viewModelScope.launch {
+            shouldStartRateAppFlow(userId).let { startFlow ->
+                if (startFlow) {
+                    _startRateAppFlow.emit(Unit)
+                }
+            }
+        }
+    }
 
     data class GetMailboxItemsParameters(
         val userId: UserId,

@@ -64,6 +64,8 @@
     <string name="mailbox_updated_just_now">Zaktualizowano teraz</string>
     <string name="mailbox_updated_recently">Zaktualizowano ostatnio</string>
     <string name="mailbox_updating">Aktualizowanie…</string>
+    <string name="is_proton">Wiadomość od Proton</string>
+    <string name="is_proton_official_badge">Oficjalna</string>
     <!-- endregion -->
     <!-- region Details -->
     <string name="details_open_in_proton_calendar_title">Otwórz w Proton Calendar</string>
@@ -260,9 +262,9 @@
     <string name="max_labels_exceeded">Wiadomość %1$s nie może posiadać więcej niż %2$d etykiet.</string>
     <string name="max_attachments_reached">Limit załączników w jednej wiadomości został osiągnięty</string>
     <string name="max_attachments_size_reached">Limit rozmiaru załączników w jednej wiadomości został osiągnięty</string>
-    <string name="expiration_days">%dd</string>
-    <string name="expiration_hours">%dg</string>
-    <string name="expiration_minutes">%dmin</string>
+    <string name="expiration_days">%d d</string>
+    <string name="expiration_hours">%d godz.</string>
+    <string name="expiration_minutes">%d min</string>
     <plurals name="attachments">
         <item quantity="one">%d załącznik</item>
         <item quantity="few">%d załączniki</item>
@@ -505,7 +507,7 @@
     <string name="saving">Zapisywanie...</string>
     <string name="update_folder">Zaktualizuj folder</string>
     <string name="spam_score_100">Ta wiadomość wydaje się pochodzić z adresu Proton Mail, ale pochodzi spoza naszego systemu i nie spełnia kryteriów uwierzytelniania. Może być sfałszowana lub nieprawidłowo przesłana!</string>
-    <string name="spam_score_101">Ta wiadomość nie spełnia wymogów weryfikacyjnych domeny nadawcy. Może być sfałszowana lub nieprawidłowo przesłana!</string>
+    <string name="spam_score_101">Ta wiadomość nie spełnia wymogów weryfikacyjnych domeny nadawcy. Może być sfałszowana lub nieprawidłowo przesłana.</string>
     <string name="spam_score_102">Ta wiadomość może być próbą wyłudzenia informacji. Upewnij się, czy nadawca wiadomości i jej treść są wiarygodne. <a href="https://proton.me/blog/prevent-phishing-attacks">DOWIEDZ SIĘ WIĘCEJ</a></string>
     <string name="print_from_template">Od: %s</string>
     <string name="print_to_template">Do: %s;  </string>
@@ -679,6 +681,7 @@
     <string name="need_storage_permissions_download_attachment_text">Aby pobrać załączniki, musisz zezwolić
         na dostęp do pamięci wewnętrznej.</string>
     <string name="need_contacts_permissions_text">Aby zaimportować kontakty, musisz zezwolić na dostęp do kontaktów.</string>
+    <string name="need_notification_permissions_to_receive_notifications">Musisz zezwolić aplikacji na wysyłanie powiadomień, aby je odbierać.</string>
     <string name="push_notifications_alert_title">Alert o powiadomieniach</string>
     <string name="push_notifications_alert_subtitle">Powiadomienia Proton Mail nie działają bez zaktualizowanych usług Google Play.</string>
     <string name="app_locked">Aplikacja jest zablokowana</string>
@@ -766,7 +769,7 @@
     <string name="mailbox">Skrzynka pocztowa</string>
     <string name="privacy">Prywatność</string>
     <string name="auto_download_messages_title">Automatyczne pobieranie wiadomości</string>
-    <string name="auto_download_messages_subtitle">Włączenie tej opcji spowoduje automatyczne pobieranie treści e-maila po otrzymaniu powiadomienia o nowej wiadomości (zwiększa zużycie danych). W innym wypadku treść wiadomości będzie pobierana dopiero po jej otwarciu. (Uwaga: w obu przypadkach, po usunięciu pamięci podręcznej lub wylogowaniu, przeczytanie wiadomości w trybie offline nie będzie możliwe.)</string>
+    <string name="auto_download_messages_subtitle">Jeśli włączysz tę opcję, treść nowych wiadomości będzie automatycznie pobierana po otrzymaniu powiadomienia o nowej wiadomości (zwiększając zużycie danych). W przeciwnym razie treść wiadomości będzie pobierana dopiero po jej otwarciu. (Uwaga: w obu przypadkach, po wyczyszczeniu pamięci podręcznej lub wylogowaniu, przeczytanie wiadomości w trybie offline nie będzie możliwe).</string>
     <string name="settings_background_sync">Synchronizacja w tle</string>
     <string name="settings_auto_show_images">Automatycznie pokazuj zdalne obrazy</string>
     <string name="settings_auto_show_embedded_images">Automatycznie pokazuj osadzone obrazy</string>
@@ -818,7 +821,7 @@
     <string name="custom_language_dialog_title">Wybierz język aplikacji</string>
     <string name="auto_detect">Automatyczne wykrywanie</string>
     <string name="combined_contacts">Połączone kontakty</string>
-    <string name="turn_combined_contacts_on">Włączenie tej funkcji spowoduje uzupełnianie adresów e-mail przy użyciu wszystkich kontaktów na Twoich zalogowanych kontach.</string>
+    <string name="turn_combined_contacts_on">Włączenie tej funkcji spowoduje automatyczne uzupełnianie adresów e-mail przy użyciu wszystkich kontaktów na Twoich zalogowanych kontach.</string>
     <string name="local_cache_management">Pamięć podręczna</string>
     <string name="cache_cleared">Pamięć podręczna została odświeżona</string>
     <string name="empty_data">Usuń dane</string>
@@ -860,6 +863,7 @@
     <!-- endregion -->
     <string name="invalid_firebase_api_key_message">Klucz interfejsu API Firebase jest nieprawidłowy. Powiadomienia nie będą działać.</string>
     <string name="failed_saving_draft_online">Nie udało się zapisać szkicu: \"%s\"</string>
+    <string name="failed_draft_does_not_exist">Wiadomość \"%s\" nie istnieje.</string>
     <string name="failed_uploading_attachment_online">Wystąpił błąd załącznika dla wiadomości: \"%s\"</string>
     <string name="cannot_open_message_while_being_sent">Nie można otworzyć wiadomości podczas jej wysyłania</string>
     <string name="enable_conversation_mode">Włącz tryb wątku</string>

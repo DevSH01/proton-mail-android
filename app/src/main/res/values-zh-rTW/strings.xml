@@ -61,6 +61,8 @@
     <string name="mailbox_updated_just_now">剛剛更新</string>
     <string name="mailbox_updated_recently">最近更新</string>
     <string name="mailbox_updating">正在更新……</string>
+    <string name="is_proton">這是 Proton 訊息</string>
+    <string name="is_proton_official_badge">官方</string>
     <!-- endregion -->
     <!-- region Details -->
     <string name="details_open_in_proton_calendar_title">於 Proton 行事曆中打開</string>
@@ -397,7 +399,7 @@
         <item>震動及響鈴</item>
     </string-array>
     <string-array name="account_type_names">
-        <item>免費</item>
+        <item>Free</item>
         <item>Plus</item>
         <item>Visionary</item>
         <item>Professional</item>
@@ -484,7 +486,7 @@
     <string name="saving">正在儲存……</string>
     <string name="update_folder">更新資料夾</string>
     <string name="spam_score_100">此電郵似乎來自一個 Proton Mail 電郵位址，卻並非由我們的系統寄出，而且未能通過我們的認證需求。這可能是偽造或不當轉寄的郵件！</string>
-    <string name="spam_score_101">此電郵無法通過網域驗證。這可能是詐騙郵件或是轉發不當導致，請再三留意！</string>
+    <string name="spam_score_101">此電郵未能通過其網域的認證需求。可能是因為遭人假冒或不當轉寄！</string>
     <string name="spam_score_102">此郵件可能為釣魚郵件。請檢查寄件者與內容以確認其為正當的。 <a href="https://proton.me/blog/prevent-phishing-attacks"> 更多資訊 </a></string>
     <string name="print_from_template">寄件者：%s</string>
     <string name="print_to_template">收件者：%s;  </string>
@@ -644,6 +646,7 @@
     <string name="need_storage_permissions_download_attachment_text">為了下載附件，您需要允許
         存取儲存空間。</string>
     <string name="need_contacts_permissions_text">為了匯入聯絡人，您必須允許存取聯絡人。</string>
+    <string name="need_notification_permissions_to_receive_notifications">您需要啟用通知權限，才能從 app 獲取通知</string>
     <string name="push_notifications_alert_title">推送通知提醒</string>
     <string name="push_notifications_alert_subtitle">若 Google Play 服務尚未更新，Proton Mail 的推送通知將無法正常運作。</string>
     <string name="app_locked">應用程式已鎖定</string>
@@ -777,7 +780,7 @@
     <string name="custom_language_dialog_title">選擇應用程式語言</string>
     <string name="auto_detect">自動偵測</string>
     <string name="combined_contacts">合併聯絡人</string>
-    <string name="turn_combined_contacts_on">啟用此功能以使用您所有已登入的帳號中的聯絡人來自動完成電郵位址。</string>
+    <string name="turn_combined_contacts_on">啟用此功能，以使用已登入帳號中的聯絡人，自動填入電子郵件地址。</string>
     <string name="local_cache_management">本機快取</string>
     <string name="cache_cleared">本機快取已重新整理</string>
     <string name="empty_data">清除資料</string>
@@ -820,6 +823,7 @@
     <!-- endregion -->
     <string name="invalid_firebase_api_key_message">無效的 Firebase API 金鑰。推送通知將無法運作。</string>
     <string name="failed_saving_draft_online">無法儲存郵件的線上草稿：「%s」</string>
+    <string name="failed_draft_does_not_exist">不存在訊息「%s」。</string>
     <string name="failed_uploading_attachment_online">郵件的附件錯誤：「%s」</string>
     <string name="cannot_open_message_while_being_sent">傳送時無法開啟此郵件</string>
     <string name="enable_conversation_mode">啟用交談模式</string>

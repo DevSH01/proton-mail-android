@@ -90,7 +90,7 @@ import kotlin.test.Test
 import kotlin.test.assertNotNull
 import kotlin.test.assertNull
 
-class CreateDraftWorkerTest : CoroutinesTest {
+class CreateDraftWorkerTest : CoroutinesTest by CoroutinesTest() {
 
     private val testUserId = UserId("id")
     private val testMessagePayload = MessagePayload(
@@ -892,6 +892,7 @@ class CreateDraftWorkerTest : CoroutinesTest {
                 this.attachments = responseMessage.attachments
                 this.localId = message.messageId
                 this.expirationTime = message.expirationTime
+                this.messageBody = message.messageBody
             }
             val actualMessage = slot<Message>()
             coVerify { messageDetailsRepository.saveMessage(capture(actualMessage)) }
@@ -1149,6 +1150,7 @@ class CreateDraftWorkerTest : CoroutinesTest {
                 this.numAttachments = message.numAttachments
                 this.attachments = responseMessage.attachments
                 this.localId = message.messageId
+                this.messageBody = message.messageBody
             }
             val actualMessage = slot<Message>()
             coVerify { messageDetailsRepository.saveMessage(capture(actualMessage)) }
@@ -1222,6 +1224,7 @@ class CreateDraftWorkerTest : CoroutinesTest {
                 this.numAttachments = localMessage.numAttachments
                 this.attachments = listOf(localAttachment, remoteAttachment)
                 this.localId = localMessage.messageId
+                this.messageBody = localMessage.messageBody
             }
             val actualMessage = slot<Message>()
             coVerify { messageDetailsRepository.saveMessage(capture(actualMessage)) }

@@ -88,12 +88,14 @@ import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.flow.take
 import kotlinx.coroutines.flow.toList
+import kotlinx.coroutines.test.UnconfinedTestDispatcher
 import kotlinx.coroutines.test.runTest
 import me.proton.core.domain.arch.DataResult
 import me.proton.core.domain.arch.ResponseSource
 import me.proton.core.domain.entity.UserId
 import me.proton.core.test.android.ArchTest
 import me.proton.core.test.kotlin.CoroutinesTest
+import me.proton.core.test.kotlin.TestDispatcherProvider
 import me.proton.core.util.kotlin.EMPTY_STRING
 import java.util.UUID
 import kotlin.test.AfterTest
@@ -111,7 +113,8 @@ private const val MESSAGE_TIME = 82374730L
 private const val SUBJECT = "subject"
 private const val MESSAGE_SENDER_EMAIL_ADDRESS = "sender@protonmail.com"
 
-class MessageDetailsViewModelTest : ArchTest, CoroutinesTest {
+class MessageDetailsViewModelTest : ArchTest by ArchTest(),
+    CoroutinesTest by CoroutinesTest({ TestDispatcherProvider(UnconfinedTestDispatcher()) }) {
 
     private val isAppInDarkMode: IsAppInDarkMode = mockk()
 

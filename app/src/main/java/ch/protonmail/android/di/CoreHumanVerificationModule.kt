@@ -19,12 +19,10 @@
 
 package ch.protonmail.android.di
 
-import ch.protonmail.android.core.Constants
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import me.proton.core.humanverification.presentation.CaptchaApiHost
 import me.proton.core.humanverification.presentation.utils.HumanVerificationVersion
 
 @Module
@@ -32,11 +30,5 @@ import me.proton.core.humanverification.presentation.utils.HumanVerificationVers
 object HumanVerificationModule {
 
     @Provides
-    // Can be either HumanVerificationVersion.HV2 or HV3.
     fun provideHumanVerificationVersion() = HumanVerificationVersion.HV3
-
-    @Provides
-    @CaptchaApiHost
-    // Legacy Captcha api host dependency. Should point to 'api.$HOST'.
-    fun provideCaptchaApiHost(): String = Constants.API_HOST
 }

@@ -33,6 +33,7 @@ val DependencyHandler.`Proton-kotlin-test` get() =                  protonTest("
 val DependencyHandler.`Proton-account` get() =                      proton("account") version `Proton-core version`
 val DependencyHandler.`Proton-account-manager` get() =              proton("account-manager") version `Proton-core version`
 val DependencyHandler.`Proton-auth` get() =                         proton("auth") version `Proton-core version`
+val DependencyHandler.`Proton-auth-test` get() =                    proton("auth-test") version `Proton-core version`
 val DependencyHandler.`Proton-challenge` get() =                    proton("challenge") version `Proton-core version`
 val DependencyHandler.`Proton-contact` get() =                      proton("contact") version `Proton-core version`
 val DependencyHandler.`Proton-country` get() =                      proton("country") version `Proton-core version`
@@ -47,6 +48,7 @@ val DependencyHandler.`Proton-key` get() =                          proton("key"
 val DependencyHandler.`Proton-mail-settings` get() =                proton("mail-settings") version `Proton-core version`
 val DependencyHandler.`Proton-metrics` get() =                      proton("metrics") version `Proton-core version`
 val DependencyHandler.`Proton-network` get() =                      proton("network") version `Proton-core version`
+val DependencyHandler.`Proton-observability` get() =                proton("observability") version `Proton-core version`
 val DependencyHandler.`Proton-payment` get() =                      proton("payment") version `Proton-core version`
 val DependencyHandler.`Proton-payment-iap` get() =                  proton("payment-iap") version `Proton-core version`
 val DependencyHandler.`Proton-plan` get() =                         proton("plan") version `Proton-core version`
@@ -80,6 +82,7 @@ val DependencyHandler.`android-startup-runtime` get() =     androidx("startup", 
 val DependencyHandler.`lifecycle-extensions` get() =        androidxLifecycle("extensions") version `lifecycle-extensions version`
 val DependencyHandler.`room-rxJava` get() =                 androidxRoom("rxjava2")
 val DependencyHandler.`safetyNet` get() =                   playServices("safetynet")
+val DependencyHandler.`google-play-review` get() = google("android.play", "review") version `google-play-core-libs`
 
 fun DependencyHandler.googleServices(moduleSuffix: String? = null, version: String = `googleServices version`) =
     google("gms", "google-services", moduleSuffix, version)

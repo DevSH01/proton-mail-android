@@ -20,6 +20,7 @@
 
 package ch.protonmail.android.di
 
+import android.content.Context
 import androidx.lifecycle.ViewModelProvider
 import ch.protonmail.android.activities.messageDetails.repository.MessageDetailsRepository
 import ch.protonmail.android.activities.settings.NotificationSettingsViewModel
@@ -31,6 +32,7 @@ import ch.protonmail.android.contacts.groups.edit.chooser.AddressChooserViewMode
 import ch.protonmail.android.core.ProtonMailApplication
 import ch.protonmail.android.core.UserManager
 import ch.protonmail.android.drawer.presentation.mapper.DrawerFoldersAndLabelsSectionUiModelMapper
+import ch.protonmail.android.feature.rating.usecase.ShouldStartRateAppFlow
 import ch.protonmail.android.labels.domain.LabelRepository
 import ch.protonmail.android.labels.domain.usecase.ObserveLabels
 import ch.protonmail.android.labels.domain.usecase.ObserveLabelsAndFoldersWithChildren
@@ -53,9 +55,12 @@ import ch.protonmail.android.usecase.delete.DeleteMessage
 import ch.protonmail.android.usecase.delete.EmptyFolder
 import ch.protonmail.android.usecase.message.ChangeMessagesReadStatus
 import ch.protonmail.android.usecase.message.ChangeMessagesStarredStatus
+import com.google.android.play.core.review.ReviewManager
+import com.google.android.play.core.review.ReviewManagerFactory
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import me.proton.core.util.kotlin.DispatcherProvider
 
@@ -90,6 +95,11 @@ internal class ViewModelModule {
         pinFragmentViewModelFactory: PinFragmentViewModelFactory
     ): ViewModelProvider.NewInstanceFactory = pinFragmentViewModelFactory
 
+    @Provides
+    fun provideReviewManager(
+        @ApplicationContext context: Context
+    ): ReviewManager = ReviewManagerFactory.create(context)
+
     @Suppress("LongParameterList") // Every new parameter adds a new issue and breaks the build
     @Provides
     fun provideMailboxViewModel(
@@ -117,7 +127,8 @@ internal class ViewModelModule {
         getMailSettings: GetMailSettings,
         mailboxItemUiModelMapper: MailboxItemUiModelMapper,
         fetchEventsAndReschedule: FetchEventsAndReschedule,
-        clearNotificationsForUser: ClearNotificationsForUser
+        clearNotificationsForUser: ClearNotificationsForUser,
+        shouldStartRateAppFlow: ShouldStartRateAppFlow
     ) = MailboxViewModel(
         messageDetailsRepositoryFactory = messageDetailsRepositoryFactory,
         userManager = userManager,
@@ -143,6 +154,7 @@ internal class ViewModelModule {
         getMailSettings = getMailSettings,
         mailboxItemUiModelMapper = mailboxItemUiModelMapper,
         fetchEventsAndReschedule = fetchEventsAndReschedule,
-        clearNotificationsForUser = clearNotificationsForUser
+        clearNotificationsForUser = clearNotificationsForUser,
+        shouldStartRateAppFlow = shouldStartRateAppFlow
     )
 }

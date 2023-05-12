@@ -18,7 +18,6 @@
  */
 import studio.forface.easygradle.dsl.*
 import studio.forface.easygradle.dsl.android.*
-import java.io.FileInputStream
 import java.io.FileNotFoundException
 import java.util.Properties
 
@@ -46,7 +45,7 @@ sentry {
 
 val privateProperties = Properties().apply {
     try {
-        load(FileInputStream("privateConfig/private.properties"))
+        load(rootDir.resolve("privateConfig/private.properties").inputStream())
     } catch (e: FileNotFoundException) {
         put("sentryDSN", "")
         put("safetyNet_apiKey", "")
@@ -58,7 +57,7 @@ val privateProperties = Properties().apply {
 }
 
 val experimentalProperties = Properties().apply {
-    load(FileInputStream("experimental.properties"))
+    load(rootDir.resolve("experimental.properties").inputStream())
 }
 
 val adb = "${System.getenv("ANDROID_HOME")}/platform-tools/adb"
@@ -319,6 +318,7 @@ dependencies {
         `Proton-metrics`,
         `Proton-key`,
         `Proton-human-verification`,
+        `Proton-observability`,
         `Proton-payment`,
         // `Proton-payment-iap`,
         `Proton-plan`,
@@ -357,6 +357,7 @@ dependencies {
         `constraint-layout`,
         `material`,
         `paging-runtime`,
+        `google-play-review`,
 
         // Lifecycle
         `lifecycle-extensions`,
@@ -421,7 +422,10 @@ dependencies {
         `butterknife-compiler`
     )
 
-    testImplementation(project(Module.testAndroid))
+    testImplementation(
+        `Proton-kotlin-util`,
+        project(Module.testAndroid)
+    )
     androidTestUtil(`orchestrator`)
     androidTestImplementation(
         project(Module.testAndroidInstrumented),
@@ -432,6 +436,7 @@ dependencies {
         `uiautomator`,
         `android-activation`,
         `Proton-android-instrumented-test`,
+        `Proton-auth-test`,
         `Proton-payment-iap`,
         `junit-ext`,
         `mock-web-server`,

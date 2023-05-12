@@ -63,6 +63,8 @@
     <string name="mailbox_updated_just_now">Upravo ažurirano</string>
     <string name="mailbox_updated_recently">Nedavno ažurirano</string>
     <string name="mailbox_updating">Ažuriranje…</string>
+    <string name="is_proton">This is a Proton message</string>
+    <string name="is_proton_official_badge">Official</string>
     <!-- endregion -->
     <!-- region Details -->
     <string name="details_open_in_proton_calendar_title">Otvori u Proton Calendaru</string>
@@ -259,9 +261,9 @@
     <string name="max_labels_exceeded">Poruka %1$s ne može imati više od %2$d oznaka.</string>
     <string name="max_attachments_reached">Dosegnut je maksimalan broj privitaka po poruci</string>
     <string name="max_attachments_size_reached">Dosegnuta je maksimalna veličina privitaka po poruci</string>
-    <string name="expiration_days">%dD</string>
-    <string name="expiration_hours">%dH</string>
-    <string name="expiration_minutes">%dM</string>
+    <string name="expiration_days">%d d</string>
+    <string name="expiration_hours">%d s</string>
+    <string name="expiration_minutes">%d min</string>
     <plurals name="attachments">
         <item quantity="one">%d privitak</item>
         <item quantity="few">%d privitka</item>
@@ -294,7 +296,7 @@
     <string name="no_subject">Poslati poruku bez predmeta?</string>
     <string name="yes">Da</string>
     <string name="no">Ne</string>
-    <string name="ok">OK</string>
+    <string name="ok">U redu</string>
     <string name="forward_prefix">Fw:</string>
     <string name="original_message_divider">-------- Izvorna poruka --------</string>
     <string name="invalid_email_address">Ova adresa \'%s\' nije valjana</string>
@@ -371,7 +373,7 @@
     <string name="sync_attachments">Sinkronizacija privitaka</string>
     <string name="processing_attachment">Obrada privitka</string>
     <string name="hyperlink_confirmation_dialog_text_html">Spremate se pokreniti web preglednik i ići na::&lt;br/&gt;&lt;br/&gt;&lt;u&gt;%s&lt;/u&gt;&lt;br/&gt;&lt;br/&gt;Želite li nastaviti?</string>
-    <string name="dont_ask_again">Ne pitaj ponovno</string>
+    <string name="dont_ask_again">Don\'t ask again</string>
     <plurals name="incorrect_pin_remaining_attempts">
         <item quantity="one">Neispravan PIN, %d pokušaj ostao</item>
         <item quantity="few">Neispravan PIN, %d pokušaja ostalo</item>
@@ -382,7 +384,7 @@
         <item quantity="few">%d pokušaja do sigurnog brisanja podataka!</item>
         <item quantity="other">%d pokušaja do sigurnog brisanja podataka!</item>
     </plurals>
-    <string name="logout">Odjava</string>
+    <string name="logout">Sign out</string>
     <string name="logout_question_next_account">Biti će te prebačeni na %s.</string>
     <string name="upgrade">Nadogradnja</string>
     <string name="error">Pogreška</string>
@@ -441,7 +443,7 @@
     <string name="contacts_import_contact">Uvezi kontakte</string>
     <string name="contacts_import">Uvoz</string>
     <string name="upload_contacts">Učitavanje kontakata</string>
-    <string name="uploading_contacts">Uploading contacts…</string>
+    <string name="uploading_contacts">Prijenos kontakata…</string>
     <string-array name="vcard_option_phone">
         <item>Telefon</item>
         <item>Mobitel</item>
@@ -471,8 +473,8 @@
         <item>@string/vcard_other_option_title</item>
         <item>@string/vcard_other_option_url</item>
     </string-array>
-    <string name="logged_out">Odjavljen</string>
-    <string name="logged_out_description">Odjavili ste se. Molimo prijavite se ponovno.</string>
+    <string name="logged_out">Signed out</string>
+    <string name="logged_out_description">You have been signed out. Please sign in again.</string>
     <string name="print_error">Pogreška u ispisu</string>
     <string name="download_complete">Preuzimanje završeno</string>
     <string name="message_expires_in">Ova poruka istječe za %s</string>
@@ -498,7 +500,7 @@
     <string name="saving">Spremanje...</string>
     <string name="update_folder">Ažuriraj mapu</string>
     <string name="spam_score_100">Ova poruka e-pošte izgleda kao da je od ProtonMail adrese, ali je došla izvan našeg sustava i nije ispunila naše zahtjeve autentikacije. Može biti lažna ili nepropisno proslijeđena!</string>
-    <string name="spam_score_101">Ova poruka e-pošte nije ispunila zahtjeve za provjeru autentičnosti svoje domene. Može biti lažna ili nepropisno proslijeđena!</string>
+    <string name="spam_score_101">This email has failed its domain\'s authentication requirements. It may be spoofed or improperly forwarded.</string>
     <string name="spam_score_102">Ova poruka može biti pokušaj krađe identiteta. Provjerite pošiljatelja i sadržaj kako biste bili sigurni da su legitimni. <a href="https://proton.me/blog/prevent-phishing-attacks">SAZNAJTE VIŠE</a></string>
     <string name="print_from_template">Od: %s</string>
     <string name="print_to_template">To: %s;  </string>
@@ -529,7 +531,7 @@
     <string name="protonmail_contacts">Proton Mail Kontakti</string>
     <string name="device_contacts">Kontakti uređaja</string>
     <string name="print_date_template">Datum: %s</string>
-    <string name="print_attachment_template">Attachment: %s;  </string>
+    <string name="print_attachment_template">Privitak: %s;  </string>
     <string name="pm_me_changed">Slanje poruka s @pm.me adrese je plaćena značajka. Vaša će poruka biti poslana s Vaše zadane adrese %s</string>
     <string name="pm_me_can_not_be_default">Nadogradite na plaćeni plan kako biste mogli postaviti vašu %s adresu e-pošte kao zadanu</string>
     <string name="dont_remind_again">Ne podsjećaj me više</string>
@@ -575,7 +577,7 @@
     <string name="expiration_error_add_msg_password">Molimo dodajte lozinku za poruku za sljedeće primatelje:</string>
     <string name="expiration_error_disable_pgp_sending">Molimo onemogućite PGP Slanja, kako biste omogući vremenski istek poruka za sljedeće primatelje:</string>
     <string name="expiration_error_proceed">Pritisnite pošalji ako svejedno želite poslati poruku ovim primateljima, ali bez isteka poruke.</string>
-    <string name="expiration_error_learn_more"><a href="https://proton.me/support/password-protected-emails">LEARN MORE</a></string>
+    <string name="expiration_error_learn_more"><a href="https://proton.me/support/password-protected-emails">SAZNAJTE VIŠE</a></string>
     <string name="channel_name_attachments">Privitci</string>
     <string name="channel_description_attachments">Informira o statusu preuzimanja privitka</string>
     <string name="channel_name_emails">E-pošta</string>
@@ -583,8 +585,8 @@
     <string name="channel_name_account">Korisnički račun</string>
     <string name="channel_description_account">Status računa</string>
     <string name="channel_name_ongoing_operations">Operacije u tijeku</string>
-    <string name="channel_description_ongoing_operations">Shows all ongoing operations like new
-		message download on background</string>
+    <string name="channel_description_ongoing_operations">Prikazuje sve trenutne operacije kao što su nova
+		preuzimanja poruka u pozadini</string>
     <string name="retrieving_notifications">Dohvaćanje obavijesti</string>
     <string name="report_phishing">Prijavi krađu identiteta</string>
     <string name="print">Ispis</string>
@@ -670,6 +672,7 @@
     <string name="need_storage_permissions_download_attachment_text">Da biste preuzeli privitke, trebate dopustiti
         pristup pohrani.</string>
     <string name="need_contacts_permissions_text">Da biste uvezli kontakte, morate dopustiti pristup kontaktima.</string>
+    <string name="need_notification_permissions_to_receive_notifications">In order to receive notifications from the app you need to enable permissions for notifications.</string>
     <string name="push_notifications_alert_title">Upozorenja Push obavijesti</string>
     <string name="push_notifications_alert_subtitle">Push obavijesti za Proton Mail ne rade bez ažuriranih Google Play usluga.</string>
     <string name="app_locked">Aplikacija je zaključana</string>
@@ -756,7 +759,7 @@
     <string name="mailbox">Poštanski sandučić</string>
     <string name="privacy">Privatnost</string>
     <string name="auto_download_messages_title">Automatsko preuzimanje poruka</string>
-    <string name="auto_download_messages_subtitle">Kada je ova opcija omogućena, tijela poruka bit će automatski preuzeta svaki put kada primite obavijest o novoj poruci e-pošte (to će trošiti više podataka). Ako ova opcija nije omogućena, tijela poruka bit će preuzeta samo kada otvorite e-poštu. (Napomena: kod obje opcije, ako očistite predmemoriju ili se odjavite, nećete moći čitati tijela poruke dok ste izvan mreže.)</string>
+    <string name="auto_download_messages_subtitle">When this option is enabled, message bodies will be automatically downloaded each time you receive a new email notification (this will consume more data). If this option is not enabled, message bodies will only be downloaded when you open an email. (Note: with either option, if you clear the cache or sign out, you will not be able to read message bodies while offline.)</string>
     <string name="settings_background_sync">Sinkronizacija u pozadini</string>
     <string name="settings_auto_show_images">Automatsko prikazivanje udaljenih slika</string>
     <string name="settings_auto_show_embedded_images">Automatsko prikazivanje ugrađenih slika</string>
@@ -807,7 +810,7 @@
     <string name="custom_language_dialog_title">Odaberite jezik za aplikaciju</string>
     <string name="auto_detect">Automatsko otkrivanje</string>
     <string name="combined_contacts">Kombinirani kontakti</string>
-    <string name="turn_combined_contacts_on">Uključite ovu značajku za automatsko dovršavanje adresa e-pošte pomoću kontakata sa svih vaših prijavljenih računa.</string>
+    <string name="turn_combined_contacts_on">Turn this feature on to auto-complete email addresses using contacts from all your signed in accounts.</string>
     <string name="local_cache_management">Lokalna predmemorija</string>
     <string name="cache_cleared">Lokalna predmemorija je osvježena</string>
     <string name="empty_data">Obriši podatke</string>
@@ -826,13 +829,13 @@
     <!-- endregion -->
     <!-- region Troubleshoot screen -->
     <string name="troubleshoot_dialog_title">Česti problemi s povezivanjem i rješenja</string>
-    <string name="troubleshoot_dialog_message">&lt;i&gt;No internet connection&lt;/i&gt; - Please make sure that your internet connection is working.
-        &lt;br/&gt;&lt;br/&gt;&lt;i&gt;Internet Service Provider (ISP) problem&lt;/i&gt; - Try connecting to Proton from a different network (or use &lt;a href=\"https://protonvpn.com/\"&gt;Proton VPN&lt;/a&gt; or &lt;a href=\"https://www.torproject.org/\"&gt;Tor&lt;/a&gt;).
-        &lt;br/&gt;&lt;br/&gt;&lt;i&gt;Government block&lt;/i&gt; - Your country may be blocking access to Proton. Try &lt;a href=\"https://protonvpn.com/\"&gt;Proton VPN&lt;/a&gt; (or any other VPN) or &lt;a href=\"https://www.torproject.org/\"&gt;Tor&lt;/a&gt; to access Proton.
-        &lt;br/&gt;&lt;br/&gt;&lt;i&gt;Antivirus interference&lt;/i&gt; - Temporarily disable or remove your antivirus software.
-        &lt;br/&gt;&lt;br/&gt;&lt;i&gt;Proxy/Firewall interference&lt;/i&gt; - Disable any proxies or firewalls, or contact your network administrator.
-        &lt;br/&gt;&lt;br/&gt;&lt;i&gt;Proton is down&lt;/i&gt; - Check &lt;a href=\"http://protonstatus.com/\"&gt;Proton Status&lt;/a&gt; for our system status.
-        &lt;br/&gt;&lt;br/&gt;&lt;i&gt;Still can’t find a solution&lt;/i&gt; - Contact us directly through our &lt;a href=\"https://proton.me/support/contact\"&gt;support form&lt;/a&gt;, &lt;a href=\"mailto:support@protonmail.zendesk.com\"&gt;email&lt;/a&gt; (support@protonmail.zendesk.com), or &lt;a href=\"https://twitter.com/ProtonPrivacy\"&gt;Twitter&lt;/a&gt;.
+    <string name="troubleshoot_dialog_message">&lt;i&gt;Nema internetske veze&lt;/i&gt; - Provjerite radi li vaša internetska veza.
+        &lt;br/&gt;&lt;br/&gt;&lt;i&gt;Problem s Internetskim poslužiteljem usluga (ISP)&lt;/i&gt; - Pokušajte se povezati na Proton s druge mreže (ili upotrijebite &lt;a href=\"https://protonvpn.com/\"&gt;Proton VPN&lt;/a&gt; ili &lt;a href=\"https://www.torproject.org/\"&gt;Tor&lt;/a&gt;).
+        &lt;br/&gt;&lt;br/&gt;&lt;i&gt;Državne cenzure&lt;/i&gt; - Vaša država možda blokira pristup Protonu. Isprobajte &lt;a href=\"https://protonvpn.com/\"&gt;Proton VPN&lt;/a&gt; (ili bilo koji drugi VPN) ili &lt;a href=\"https://www.torproject.org/\"&gt;Tor&lt;/a&gt; za pristup Protonu.
+        &lt;br/&gt;&lt;br/&gt;&lt;i&gt;Smetnje s antivirusom&lt;/i&gt; - Privremeno onemogućite ili uklonite svoj antivirusni softver.
+        &lt;br/&gt;&lt;br/&gt;&lt;i&gt;Smetnje s Proxy-em/Vatrozidom&lt;/i&gt; - Onemogućite proxy ili vatrozid ili se obratite mrežnom administratoru.
+        &lt;br/&gt;&lt;br/&gt;&lt;i&gt;Proton je nedostupan&lt;/i&gt; - Provjerite &lt;a href=\"http://protonstatus.com/\"&gt;Proton Status&lt;/a&gt; za uvid u status našeg sustava.
+        &lt;br/&gt;&lt;br/&gt;&lt;i&gt;Još uvijek ne mogu pronaći rješenje&lt;/i&gt; - Kontaktirajte nas putem  &lt;a href=\"https://proton.me/support/contact\"&gt;obrasca za podršku&lt;/a&gt;,  &lt;/a&gt;, &lt;a href=\"mailto:support@protonmail.zendesk.com\"&gt;e-pošte&lt;/a&gt; (support@protonmail.com), ili  &lt;a href=\"https://twitter.com/ProtonPrivacy\"&gt;Twittera&lt;/a&gt;.
     </string>
     <!-- endregion -->
     <!-- region errors -->
@@ -850,6 +853,7 @@
     <!-- endregion -->
     <string name="invalid_firebase_api_key_message">Nevažeći API ključ za Firebase. Push obavijesti neće raditi.</string>
     <string name="failed_saving_draft_online">Spremanje online skice za poruku nije uspjelo: \"%s\"</string>
+    <string name="failed_draft_does_not_exist">Poruka \"%s\" ne postoji.</string>
     <string name="failed_uploading_attachment_online">Pogreška u privitku poruke: \"%s\"</string>
     <string name="cannot_open_message_while_being_sent">Nije moguće otvoriti ovu poruku dok se šalje</string>
     <string name="enable_conversation_mode">Omogući način razgovora</string>

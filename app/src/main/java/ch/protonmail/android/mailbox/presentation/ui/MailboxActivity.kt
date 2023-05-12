@@ -18,6 +18,7 @@
  */
 package ch.protonmail.android.mailbox.presentation.ui
 
+import android.Manifest
 import android.app.AlertDialog
 import android.content.BroadcastReceiver
 import android.content.Context
@@ -28,6 +29,7 @@ import android.content.res.Resources
 import android.graphics.Canvas
 import android.net.Uri
 import android.os.AsyncTask
+import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -37,6 +39,7 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.annotation.IdRes
 import androidx.constraintlayout.widget.ConstraintLayout
@@ -57,6 +60,7 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout.OnRefreshListener
 import ch.protonmail.android.R
 import ch.protonmail.android.activities.StartCompose
+import ch.protonmail.android.activities.StartOnboarding
 import ch.protonmail.android.activities.StartSearch
 import ch.protonmail.android.activities.messageDetails.repository.MessageDetailsRepository
 import ch.protonmail.android.adapters.messages.MailboxItemViewHolder.MessageViewHolder
@@ -85,6 +89,7 @@ import ch.protonmail.android.events.MailboxNoMessagesEvent
 import ch.protonmail.android.events.SettingsChangedEvent
 import ch.protonmail.android.events.Status
 import ch.protonmail.android.feature.account.AccountStateManager
+import ch.protonmail.android.feature.rating.StartRateAppFlow
 import ch.protonmail.android.labels.domain.model.Label
 import ch.protonmail.android.labels.domain.model.LabelId
 import ch.protonmail.android.labels.domain.model.LabelType
@@ -106,7 +111,6 @@ import ch.protonmail.android.notifications.data.remote.fcm.MultiUserFcmTokenMana
 import ch.protonmail.android.notifications.data.remote.fcm.RegisterDeviceWorker
 import ch.protonmail.android.notifications.data.remote.fcm.model.FirebaseToken
 import ch.protonmail.android.notifications.presentation.utils.EXTRA_MAILBOX_LOCATION
-import ch.protonmail.android.onboarding.newuser.presentation.NewUserOnboardingActivity
 import ch.protonmail.android.pendingaction.data.PendingActionDao
 import ch.protonmail.android.pendingaction.data.PendingActionDatabase
 import ch.protonmail.android.prefs.SecureSharedPreferences
@@ -120,6 +124,7 @@ import ch.protonmail.android.utils.extensions.app
 import ch.protonmail.android.utils.extensions.getColorIdFromAttr
 import ch.protonmail.android.utils.extensions.showToast
 import ch.protonmail.android.utils.ui.dialogs.DialogUtils.Companion.showDeleteConfirmationDialog
+import ch.protonmail.android.utils.ui.dialogs.DialogUtils.Companion.showInfoDialog
 import ch.protonmail.android.utils.ui.dialogs.DialogUtils.Companion.showTwoButtonInfoDialog
 import ch.protonmail.android.utils.ui.dialogs.DialogUtils.Companion.showUndoSnackbar
 import ch.protonmail.android.utils.ui.selection.SelectionModeEnum
@@ -186,6 +191,9 @@ internal class MailboxActivity :
     lateinit var isConversationModeEnabled: ConversationModeEnabled
 
     @Inject
+    lateinit var startRateAppFlow: StartRateAppFlow
+
+    @Inject
     @DefaultSharedPreferences
     lateinit var defaultSharedPreferences: SharedPreferences
 
@@ -239,13 +247,34 @@ internal class MailboxActivity :
     }
     private val startSearchLauncher = registerForActivityResult(StartSearch()) {}
 
+    private val requestPermissionLauncher =
+        registerForActivityResult(
+            ActivityResultContracts.RequestPermission()
+        ) { isGranted: Boolean ->
+            if (!isGranted) {
+                showInfoDialog(
+                    this, getString(R.string.need_permissions_title),
+                    getString(R.string.need_notification_permissions_to_receive_notifications)
+                ) { unit: Unit -> unit }
+            }
+        }
+
+    private val startOnboardingActivityLauncher = registerForActivityResult(StartOnboarding()) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            requestPermissionLauncher.launch(
+                Manifest.permission.POST_NOTIFICATIONS
+            )
+        }
+
+    }
+
     override val currentLabelId get() = mailboxLabelId
 
     override fun getLayoutId(): Int = R.layout.activity_mailbox
 
     override fun onCreate(savedInstanceState: Bundle?) {
         installSplashScreen().setKeepOnScreenCondition {
-            accountStateManager.state.value != AccountStateManager.State.PrimaryExist
+            accountStateManager.state.value == AccountStateManager.State.Processing
         }
         super.onCreate(savedInstanceState)
 
@@ -352,7 +381,11 @@ internal class MailboxActivity :
                 if (MessageUtils.areAllUnRead(
                         selectedMessages
                     )
-                ) R.drawable.ic_proton_envelope_open_text else R.drawable.ic_proton_envelope_dot
+                ) R.drawable.ic_proton_envelope_open_text else R.drawable.ic_proton_envelope_dot,
+                if (MessageUtils.areAllUnRead(
+                        selectedMessages
+                    )
+                ) getString(R.string.mark_as_read) else getString(R.string.mark_as_unread)
             )
         }
 
@@ -384,6 +417,7 @@ internal class MailboxActivity :
             exitSelectionModeSharedFlow
                 .onEach { if (it) actionMode?.finish() }
                 .launchIn(lifecycleScope)
+
         }
 
         setUpMailboxActionsView()
@@ -407,6 +441,10 @@ internal class MailboxActivity :
                 )
             }.launchIn(lifecycleScope)
         }
+
+        mailboxViewModel.startRateAppFlow
+            .onEach { startRateAppFlow(this) }
+            .launchIn(lifecycleScope)
     }
 
     private fun startObserving() {
@@ -739,7 +777,7 @@ internal class MailboxActivity :
         if (userManager.currentUserId != null &&
             !defaultSharedPreferences.getBoolean(PREF_NEW_USER_ONBOARDING_SHOWN, false)
         ) {
-            startActivity(Intent(this, NewUserOnboardingActivity::class.java))
+            startOnboardingActivityLauncher.launch(Unit)
         }
 
         registerFcmReceiver()
@@ -749,6 +787,8 @@ internal class MailboxActivity :
         if (mailboxLocation == MessageLocationType.INBOX) {
             userManager.currentUserId?.let { mailboxViewModel.clearNotifications(it) }
         }
+
+        mailboxViewModel.startRateAppFlowIfNeeded()
     }
 
     override fun onPause() {
@@ -1019,6 +1059,37 @@ internal class MailboxActivity :
             R.drawable.ic_proton_tag
         )
         mailboxActionsView.bind(actionsUiModel)
+
+
+        mailboxActionsView.setAction(
+            BottomActionsView.ActionPosition.ACTION_SECOND, true,
+            if (currentMailboxLocation in arrayOf(
+                    MessageLocationType.DRAFT,
+                    MessageLocationType.ALL_DRAFT,
+                    MessageLocationType.SENT,
+                    MessageLocationType.ALL_SENT,
+                    MessageLocationType.TRASH,
+                    MessageLocationType.SPAM
+                )
+            ) R.drawable.ic_proton_trash_cross else R.drawable.ic_proton_trash,
+            if (currentMailboxLocation in arrayOf(
+                    MessageLocationType.DRAFT,
+                    MessageLocationType.ALL_DRAFT,
+                    MessageLocationType.SENT,
+                    MessageLocationType.ALL_SENT,
+                    MessageLocationType.TRASH,
+                    MessageLocationType.SPAM
+                )
+            ) getString(R.string.delete) else getString(
+                R.string.trash
+            )
+        )
+        mailboxActionsView.setAction(
+            BottomActionsView.ActionPosition.ACTION_THIRD, true,
+            R.drawable.ic_proton_folder_arrow_in,
+            getString(R.string.move_to)
+        )
+
         mailboxActionsView.setOnFirstActionClickListener {
             val messageIds = getSelectedMessageIds()
             if (MessageUtils.areAllUnRead(selectedMessages)) {

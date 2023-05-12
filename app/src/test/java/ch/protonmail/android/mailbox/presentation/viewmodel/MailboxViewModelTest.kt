@@ -41,6 +41,7 @@ import ch.protonmail.android.di.JobEntryPoint
 import ch.protonmail.android.domain.loadMoreFlowOf
 import ch.protonmail.android.domain.withLoadMore
 import ch.protonmail.android.feature.NotLoggedIn
+import ch.protonmail.android.feature.rating.usecase.ShouldStartRateAppFlow
 import ch.protonmail.android.labels.domain.LabelRepository
 import ch.protonmail.android.labels.domain.model.Label
 import ch.protonmail.android.labels.domain.model.LabelId
@@ -73,6 +74,7 @@ import ch.protonmail.android.usecase.delete.EmptyFolder
 import ch.protonmail.android.usecase.message.ChangeMessagesReadStatus
 import ch.protonmail.android.usecase.message.ChangeMessagesStarredStatus
 import dagger.hilt.EntryPoints
+import io.mockk.Called
 import io.mockk.called
 import io.mockk.coEvery
 import io.mockk.coVerify
@@ -82,10 +84,12 @@ import io.mockk.mockk
 import io.mockk.mockkStatic
 import io.mockk.runs
 import io.mockk.unmockkStatic
+import io.mockk.verify
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.flow.receiveAsFlow
+import kotlinx.coroutines.test.UnconfinedTestDispatcher
 import kotlinx.coroutines.test.runTest
 import me.proton.core.domain.entity.UserId
 import me.proton.core.domain.type.IntEnum
@@ -102,13 +106,15 @@ import me.proton.core.mailsettings.domain.entity.ViewLayout
 import me.proton.core.mailsettings.domain.entity.ViewMode
 import me.proton.core.test.android.ArchTest
 import me.proton.core.test.kotlin.CoroutinesTest
+import me.proton.core.test.kotlin.TestDispatcherProvider
 import me.proton.core.util.kotlin.EMPTY_STRING
 import kotlin.test.AfterTest
 import kotlin.test.BeforeTest
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
-class MailboxViewModelTest : ArchTest, CoroutinesTest {
+class MailboxViewModelTest : ArchTest by ArchTest(),
+    CoroutinesTest by CoroutinesTest({ TestDispatcherProvider(UnconfinedTestDispatcher()) }) {
 
     private val testUserId = UserId("8237462347237428")
 
@@ -175,6 +181,7 @@ class MailboxViewModelTest : ArchTest, CoroutinesTest {
     private val fetchEventsAndReschedule: FetchEventsAndReschedule = mockk {
         coEvery { this@mockk.invoke() } just runs
     }
+    private val shouldStartRateAppFlow: ShouldStartRateAppFlow = mockk()
 
     private lateinit var viewModel: MailboxViewModel
 
@@ -269,7 +276,8 @@ class MailboxViewModelTest : ArchTest, CoroutinesTest {
             getMailSettings = getMailSettings,
             mailboxItemUiModelMapper = mailboxItemUiModelMapper,
             fetchEventsAndReschedule = fetchEventsAndReschedule,
-            clearNotificationsForUser = clearNotificationsForUser
+            clearNotificationsForUser = clearNotificationsForUser,
+            shouldStartRateAppFlow = shouldStartRateAppFlow
         )
     }
 
@@ -603,6 +611,46 @@ class MailboxViewModelTest : ArchTest, CoroutinesTest {
             }
         }
 
+    @Test
+    fun `emit start rate app flow event when use case return true`() = runTest(dispatchers.Main) {
+        // given
+        coEvery { shouldStartRateAppFlow.invoke(testUserId) } returns true
+
+        viewModel.startRateAppFlow.test {
+            // when
+            viewModel.startRateAppFlowIfNeeded()
+
+            // then
+            awaitItem()
+        }
+    }
+
+    @Test
+    fun `does not emit start rate app flow event when use case returns false`() = runTest(dispatchers.Main) {
+        // given
+        coEvery { shouldStartRateAppFlow.invoke(testUserId) } returns false
+
+        viewModel.startRateAppFlow.test {
+            // when
+            viewModel.startRateAppFlowIfNeeded()
+
+            // then
+            ensureAllEventsConsumed()
+        }
+    }
+
+    @Test
+    fun `start rate app flow if needed is not called when current user id is invalid`() = runTest(dispatchers.Main) {
+        // given
+        every { userManager.currentUserId } returns null
+
+        // when
+        viewModel.startRateAppFlowIfNeeded()
+
+        // then
+        verify { shouldStartRateAppFlow wasNot Called }
+    }
+
     private fun List<MailboxItemUiModel>.toMailboxState(): MailboxListState.Data =
         MailboxListState.Data(this, isFreshData = false, shouldResetPosition = true)
 
@@ -638,7 +686,8 @@ class MailboxViewModelTest : ArchTest, CoroutinesTest {
             messageLabels = emptyList(),
             allLabelsIds = emptyList(),
             isDraft = false,
-            isScheduled = false
+            isScheduled = false,
+            isProton = false
         )
 
 

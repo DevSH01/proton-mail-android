@@ -87,6 +87,7 @@ import ch.protonmail.android.exceptions.ErrorStateGeneratorsKt;
 import ch.protonmail.android.feature.account.AccountManagerKt;
 import ch.protonmail.android.feature.account.AccountStateHandlerInitializer;
 import ch.protonmail.android.feature.account.CoreAccountManagerMigration;
+import ch.protonmail.android.featureflags.FeatureFlagsInitializer;
 import ch.protonmail.android.notifications.data.remote.fcm.MultiUserFcmTokenManager;
 import ch.protonmail.android.notifications.presentation.utils.NotificationServer;
 import ch.protonmail.android.onboarding.base.presentation.AddStartOnboardingObserverIfNeeded;
@@ -109,6 +110,7 @@ import me.proton.core.auth.presentation.MissingScopeInitializer;
 import me.proton.core.crypto.validator.presentation.init.CryptoValidatorInitializer;
 import me.proton.core.domain.entity.UserId;
 import me.proton.core.humanverification.presentation.HumanVerificationInitializer;
+import me.proton.core.network.presentation.init.UnAuthSessionFetcherInitializer;
 import me.proton.core.plan.presentation.UnredeemedPurchaseInitializer;
 import me.proton.core.util.kotlin.CoreLogger;
 import studio.forface.viewstatestore.ViewStateStoreConfig;
@@ -232,6 +234,8 @@ public class ProtonMailApplication extends Application implements androidx.work.
         appInitializer.initializeComponent(HumanVerificationInitializer.class);
         appInitializer.initializeComponent(MissingScopeInitializer.class);
         appInitializer.initializeComponent(UnredeemedPurchaseInitializer.class);
+        appInitializer.initializeComponent(UnAuthSessionFetcherInitializer.class);
+        appInitializer.initializeComponent(FeatureFlagsInitializer.class);
 
         checkForUpdateAndClearCache();
     }

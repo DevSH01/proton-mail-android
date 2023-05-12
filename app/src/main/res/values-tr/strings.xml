@@ -62,18 +62,20 @@
     <string name="mailbox_updated_just_now">Az önce güncellendi</string>
     <string name="mailbox_updated_recently">Yakın zamanda güncellenmiş</string>
     <string name="mailbox_updating">Güncelleniyor…</string>
+    <string name="is_proton">Bu bir Proton iletisidir</string>
+    <string name="is_proton_official_badge">Resmi</string>
     <!-- endregion -->
     <!-- region Details -->
     <string name="details_open_in_proton_calendar_title">Proton Calendar ile açın</string>
     <string name="details_open_in_proton_calendar_subtitle">Güvenli şifrelenmiş takvim</string>
     <string name="details_open_in_proton_calendar_icon_desc">Proton Calendar simgesi</string>
     <string name="details_play_store_error">Play Store açılamadı</string>
-    <string name="details_hyperlink_phishing_dialog_title">Uyarı: Şüpheli sahte web sitesi</string>
-    <string name="details_hyperlink_phishing_dialog_content">Bu bağlantı, parola ve kredi kartı gibi bilgilerinizi çalmayı deneyen bir web sitesine gidiyor olabilir.&lt;br/&gt;&lt;br/&gt;&lt;u&gt;%s&lt;/u&gt;&lt;br/&gt;&lt;br/&gt;Güvenliğiniz için daha ileri gitmeyin.</string>
+    <string name="details_hyperlink_phishing_dialog_title">Uyarı: Kimlik avı girişimi şüphesi bulunan site</string>
+    <string name="details_hyperlink_phishing_dialog_content">Bu bağlantı, parola ve kredi kartı gibi bilgilerinizi çalmayı deneyen bir siteye gidiyor olabilir.&lt;br/&gt;&lt;br/&gt;&lt;u&gt;%s&lt;/u&gt;&lt;br/&gt;&lt;br/&gt;Güvenliğiniz için daha ileri gitmeyin.</string>
     <string name="details_hyperlink_phishing_dialog_cancel_action">Geri dön (önerilir)</string>
     <string name="details_hyperlink_phishing_dialog_confirm_action">Uyarıyı yok sayıp ilerle</string>
     <string name="scheduled_message_info">Bu ileti %s zamanında gönderilecek</string>
-    <string name="scheduled_message_edit_info">Zamanlanmış iletiler yalnızca şu anda yalnızca web arayüzü ve iOS uygulamaları üzerinden değiştirilebilir.</string>
+    <string name="scheduled_message_edit_info">Zamanlanmış iletiler yalnızca şu anda yalnızca site arayüzü ve iOS uygulamaları üzerinden değiştirilebilir.</string>
     <string name="scheduled_message_moved_to_trash_title">İleti gönderilmeyecek</string>
     <string name="scheduled_message_moved_to_trash_desc">Bu ileti çöpe atıldığında gönderim zamanlaması iptal edilir.</string>
     <!-- endregion -->
@@ -157,7 +159,7 @@
     <string name="contact_details_remote_content_dialog_positive_button">İçeriği yükle</string>
     <!-- endregion -->
     <!-- region Onboarding -->
-    <string name="new_user_onboarding_privacy_for_all_headline">Herkes için kişisel gizlilik</string>
+    <string name="new_user_onboarding_privacy_for_all_headline">Herkes için gizlilik</string>
     <string name="new_user_onboarding_privacy_for_all_description">Sorunsuz uçtan uca şifrelemenin tadını çıkarmak için tanıdıklarınızı Proton Mail kullanmaya çağırın ya da gönderdiğiniz iletilere parola koruması ekleyin.</string>
     <string name="new_user_onboarding_neat_and_tidy_headline">Temiz ve düzenli</string>
     <string name="new_user_onboarding_neat_and_tidy_description">Gelen kutunuzu mükemmelleştirmek için iletileri dosyalayın, etiketleyin ve renklendirin.</string>
@@ -166,7 +168,7 @@
     <string name="existing_user_onboarding_new_features_headline">Yeni özellikler</string>
     <string name="existing_user_onboarding_new_features_description">Karanlık kip, geliştirilmiş bildirimler, okunmamış iletiler süzgeci ve alt klasörler gibi yeni özelliklerin tadını çıkarın.</string>
     <string name="existing_user_onboarding_updated_proton_headline">Güncellenmiş Proton, birleşik koruma</string>
-    <string name="existing_user_onboarding_updated_proton_description">Yenilenmiş Proton böyle görünüyor. Birçok hizmet, tek amaç. Kişisel gizliliğin doğal sayıldığı internet fikrine hoş geldiniz. <a href="https://proton.me/news/updated-proton">Ayrıntılı bilgi alın</a></string>
+    <string name="existing_user_onboarding_updated_proton_description">Yenilenmiş Proton böyle görünüyor. Birçok hizmet, tek amaç. Gizliliğin doğal sayıldığı internet fikrine hoş geldiniz. <a href="https://proton.me/news/updated-proton">Ayrıntılı bilgi alın</a></string>
     <string name="onboarding_next">Sonraki</string>
     <string name="onboarding_get_started">Başlayalım</string>
     <string name="onboarding_got_it">Anladım</string>
@@ -366,7 +368,7 @@
     <string name="share_link">Bağlantıyı paylaş</string>
     <string name="sync_attachments">Ek dosyalar eşitleniyor</string>
     <string name="processing_attachment">Ek dosya işleniyor</string>
-    <string name="hyperlink_confirmation_dialog_text_html">Web tarayıcısını başlatarak gezinmek üzeresiniz: &lt;br/&gt;&lt;br/&gt;&lt;u&gt;%s&lt;/u&gt;&lt;br/&gt;&lt;br/&gt;İlerlemek istiyor musunuz?</string>
+    <string name="hyperlink_confirmation_dialog_text_html">Tarayıcıyı başlatarak gezinmek üzeresiniz: &lt;br/&gt;&lt;br/&gt;&lt;u&gt;%s&lt;/u&gt;&lt;br/&gt;&lt;br/&gt;İlerlemek istiyor musunuz?</string>
     <string name="dont_ask_again">Bir daha sorma</string>
     <plurals name="incorrect_pin_remaining_attempts">
         <item quantity="one">PIN kodu yanlış. %d deneme kaldı</item>
@@ -491,7 +493,7 @@
     <string name="saving">Kaydediliyor...</string>
     <string name="update_folder">Klasörü güncelle</string>
     <string name="spam_score_100">Bu e-posta bir Proton Mail adresinden gelmiş gibi görünüyor, ancak sistemimizin dışından geldi ve kimlik doğrulama gereksinimlerimiz başarısız oldu. Sahteciliğe yol açabilir veya yanlış yönlendirilebilir!</string>
-    <string name="spam_score_101">Bu e-posta, etki alanının doğrulama gereksinimlerini karşılayamadı. E-posta, sahte ya da hatalı iletilmiş olabilir!</string>
+    <string name="spam_score_101">Bu e-posta, etki alanının kimlik doğrulama gereksinimlerini karşılayamadı. E-posta, sahte ya da hatalı iletilmiş olabilir.</string>
     <string name="spam_score_102">Bu ileti bir kimlik avı girişimi olabilir. Lütfen göründüğü gibi olduklarından emin olmak için gönderici adresini ve ileti içeriğini kontrol edin. <a href="https://proton.me/blog/prevent-phishing-attacks">AYRINTILI BİLGİ ALIN</a></string>
     <string name="print_from_template">Kimden: %s</string>
     <string name="print_to_template">Kime: %s;  </string>
@@ -579,9 +581,9 @@
     <string name="channel_description_ongoing_operations">Yeni iletilerin arka planda indirilmesi gibi
 		süren tüm işlemleri gösterir</string>
     <string name="retrieving_notifications">Bildirimler alınıyor</string>
-    <string name="report_phishing">Kimlik avı bildir</string>
+    <string name="report_phishing">Kimlik avı girişimi bildir</string>
     <string name="print">Yazdır</string>
-    <string name="phishing_dialog_title">Kimlik avı bildirimini onayla</string>
+    <string name="phishing_dialog_title">Kimlik avı girişimi bildirimini onayla</string>
     <string name="phishing_dialog_message">Bir iletiyi kimlik avı girişimi olarak bildirdiğinizde, ileti bize gönderilir.
 		Böylece onu inceleyebilir ve süzgeçlerimizi geliştirebiliriz. Bu durum iletinin tüm içeriğini görebileceğimi anlamına gelir.</string>
     <string name="phishing_report_send_message_moved_to_spam">Bildirim gönderildi. İleti istenmeyen kutusuna taşındı.</string>
@@ -657,6 +659,7 @@
     <string name="need_storage_permissions_download_attachment_text">Ek dosyaları indirmek için depolama alanına erişme
         izni vermeniz gerekir.</string>
     <string name="need_contacts_permissions_text">Kişileri içe aktarmak için kişilere erişme izni vermeniz gerekir.</string>
+    <string name="need_notification_permissions_to_receive_notifications">Uygulama bildirimlerini alabilmek için bildirim izinlerini vermeniz gerekir.</string>
     <string name="push_notifications_alert_title">Anlık bildirim uyarıları</string>
     <string name="push_notifications_alert_subtitle">Proton Mail anlık bildirimleri, güncellenmiş Google Play hizmetleri olmadan çalışmaz.</string>
     <string name="app_locked">Uygulama kilitlendi</string>
@@ -742,7 +745,7 @@
     <string name="mailbox">Posta kutusu</string>
     <string name="privacy">Gizlilik</string>
     <string name="auto_download_messages_title">İletiler otomatik indirilsin</string>
-    <string name="auto_download_messages_subtitle">Bu seçenek etkinleştirildiğinde, yeni bir e-posta bildirimi aldığınızda ileti gövdeleri otomatik olarak indirilir (daha fazla veri kullanılır). Devre dışı bırakıldığında, ileti gövdeleri yalnızca e-posta açıldığında indirilir. (Not: Her iki seçenekte de ön belleği temizlerseniz veya oturumu kapatırsanız, çevrimdışı durumdayken ileti gövdelerini okuyamazsınız.)</string>
+    <string name="auto_download_messages_subtitle">Bu seçenek etkinleştirildiğinde, yeni bir e-posta bildirimi aldığınızda ileti gövdeleri otomatik olarak indirilir (daha fazla veri kullanılır). Devre dışı bırakıldığındaysa, ileti gövdeleri yalnızca e-posta açıldığında indirilir. (Not: Her iki seçenekte de ön belleği temizlerseniz veya oturumu kapatırsanız, çevrimdışı durumdayken ileti gövdelerini okuyamazsınız.)</string>
     <string name="settings_background_sync">Arka planda eşitlensin</string>
     <string name="settings_auto_show_images">Uzak görseller görüntülensin</string>
     <string name="settings_auto_show_embedded_images">Gömülü görseller görüntülensin</string>
@@ -835,6 +838,7 @@
     <!-- endregion -->
     <string name="invalid_firebase_api_key_message">Firebase API anahtarı geçersiz. Anlık bildirimler çalışmayacak.</string>
     <string name="failed_saving_draft_online">Çevrimiçi ileti taslağı kaydedilemedi: \"%s\"</string>
+    <string name="failed_draft_does_not_exist">\"%s\" iletisi bulunamadı.</string>
     <string name="failed_uploading_attachment_online">İletide ek dosya hatası: \"%s\"</string>
     <string name="cannot_open_message_while_being_sent">Bu ileti gönderilirken açılamaz</string>
     <string name="enable_conversation_mode">Yazışma kipini etkinleştir</string>
